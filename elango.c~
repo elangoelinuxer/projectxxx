@@ -305,7 +305,7 @@ val3=val3+3;
 //tmp[4]=tamil[val2+3];
 //tmp[5]=tamil[val2+3];
 
-
+val2=val2+3;
 
 
 tmp[3]=0;
