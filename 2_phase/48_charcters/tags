@@ -1,0 +1,46 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+SPI_BUFF_SIZE	elango111.c	39;"	d	file:
+SPI_BUS	elango111.c	43;"	d	file:
+SPI_BUS_CS1	elango111.c	44;"	d	file:
+SPI_BUS_SPEED	elango111.c	45;"	d	file:
+USER_BUFF_SIZE	elango111.c	40;"	d	file:
+add_elango_device_to_bus	elango111.c	/^static int __init add_elango_device_to_bus(void)$/;"	f	file:
+cdev	elango111.c	/^	struct cdev cdev;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::cdev	file:
+class	elango111.c	/^	struct class *class;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::class	file:
+devt	elango111.c	/^	dev_t devt;$/;"	m	struct:elango_dev	file:
+elango_control	elango111.c	/^struct elango_control {$/;"	s	file:
+elango_ctl	elango111.c	/^struct elango_control elango_ctl;$/;"	v	typeref:struct:elango_control
+elango_dev	elango111.c	/^ struct elango_dev elango_dev;$/;"	v	typeref:struct:elango_dev
+elango_dev	elango111.c	/^struct elango_dev {$/;"	s	file:
+elango_do_one_message	elango111.c	/^static int elango_do_one_message(void)$/;"	f	file:
+elango_driver	elango111.c	/^static struct spi_driver elango_driver = {$/;"	v	typeref:struct:spi_driver	file:
+elango_exit	elango111.c	/^module_exit(elango_exit);$/;"	v
+elango_exit	elango111.c	/^static void __exit elango_exit(void)$/;"	f	file:
+elango_fops	elango111.c	/^static const struct file_operations elango_fops = {$/;"	v	typeref:struct:file_operations	file:
+elango_init	elango111.c	/^module_init(elango_init);$/;"	v
+elango_init	elango111.c	/^static int __init elango_init(void)$/;"	f	file:
+elango_init_cdev	elango111.c	/^static int __init elango_init_cdev(void)$/;"	f	file:
+elango_init_class	elango111.c	/^static int __init elango_init_class(void)$/;"	f	file:
+elango_init_spi	elango111.c	/^static int __init elango_init_spi(void)$/;"	f	file:
+elango_open	elango111.c	/^static int elango_open(struct inode *inode, struct file *filp)$/;"	f	file:
+elango_prepare_spi_message	elango111.c	/^static void elango_prepare_spi_message(void)$/;"	f	file:
+elango_probe	elango111.c	/^static int elango_probe(struct spi_device *spi_device)$/;"	f	file:
+elango_read	elango111.c	/^static ssize_t elango_read(struct file *filp, char __user *buff, size_t count,$/;"	f	file:
+elango_remove	elango111.c	/^static int elango_remove(struct spi_device *spi_device)$/;"	f	file:
+fop_sem	elango111.c	/^	struct semaphore fop_sem;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::semaphore	file:
+msg	elango111.c	/^	struct spi_message msg;$/;"	m	struct:elango_control	typeref:struct:elango_control::spi_message	file:
+rotate	elango111.c	/^static void rotate(void)$/;"	f	file:
+rx_buff	elango111.c	/^	u8 *rx_buff;$/;"	m	struct:elango_control	file:
+spi_device	elango111.c	/^	struct spi_device *spi_device;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::spi_device	file:
+spi_sem	elango111.c	/^	struct semaphore spi_sem;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::semaphore	file:
+test_data	elango111.c	/^	u8 test_data;	$/;"	m	struct:elango_dev	file:
+this_driver_name	elango111.c	/^const char this_driver_name[] = "elango";$/;"	v
+times	elango111.c	/^u8 times[96][13] ={$/;"	v
+transfer	elango111.c	/^	struct spi_transfer transfer;$/;"	m	struct:elango_control	typeref:struct:elango_control::spi_transfer	file:
+tx_buff	elango111.c	/^	u8 *tx_buff; $/;"	m	struct:elango_control	file:
+user_buff	elango111.c	/^	char *user_buff;$/;"	m	struct:elango_dev	file:

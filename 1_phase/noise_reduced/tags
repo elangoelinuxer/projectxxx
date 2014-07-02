@@ -1,0 +1,174 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+SPI_BUFF_SIZE	elango.c	37;"	d	file:
+SPI_BUFF_SIZE	elango111.c	37;"	d	file:
+SPI_BUFF_SIZE	elango_good.c	37;"	d	file:
+SPI_BUFF_SIZE	elango_good1.c	37;"	d	file:
+SPI_BUS	elango.c	41;"	d	file:
+SPI_BUS	elango111.c	41;"	d	file:
+SPI_BUS	elango_good.c	41;"	d	file:
+SPI_BUS	elango_good1.c	41;"	d	file:
+SPI_BUS_CS1	elango.c	42;"	d	file:
+SPI_BUS_CS1	elango111.c	42;"	d	file:
+SPI_BUS_CS1	elango_good.c	42;"	d	file:
+SPI_BUS_CS1	elango_good1.c	42;"	d	file:
+SPI_BUS_SPEED	elango.c	43;"	d	file:
+SPI_BUS_SPEED	elango111.c	43;"	d	file:
+SPI_BUS_SPEED	elango_good.c	43;"	d	file:
+SPI_BUS_SPEED	elango_good1.c	43;"	d	file:
+USER_BUFF_SIZE	elango.c	38;"	d	file:
+USER_BUFF_SIZE	elango111.c	38;"	d	file:
+USER_BUFF_SIZE	elango_good.c	38;"	d	file:
+USER_BUFF_SIZE	elango_good1.c	38;"	d	file:
+add_elango_device_to_bus	elango.c	/^static int __init add_elango_device_to_bus(void)$/;"	f	file:
+add_elango_device_to_bus	elango111.c	/^static int __init add_elango_device_to_bus(void)$/;"	f	file:
+add_elango_device_to_bus	elango_good.c	/^static int __init add_elango_device_to_bus(void)$/;"	f	file:
+add_elango_device_to_bus	elango_good1.c	/^static int __init add_elango_device_to_bus(void)$/;"	f	file:
+cdev	elango.c	/^	struct cdev cdev;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::cdev	file:
+cdev	elango111.c	/^	struct cdev cdev;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::cdev	file:
+cdev	elango_good.c	/^	struct cdev cdev;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::cdev	file:
+cdev	elango_good1.c	/^	struct cdev cdev;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::cdev	file:
+class	elango.c	/^	struct class *class;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::class	file:
+class	elango111.c	/^	struct class *class;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::class	file:
+class	elango_good.c	/^	struct class *class;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::class	file:
+class	elango_good1.c	/^	struct class *class;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::class	file:
+data	elango.c	/^void data(u32 *tmp)$/;"	f
+data	elango111.c	/^void data(u32 *tmp)$/;"	f
+data	elango_good.c	/^void data(u32 *tmp)$/;"	f
+data	elango_good1.c	/^void data(u32 *tmp)$/;"	f
+devt	elango.c	/^	dev_t devt;$/;"	m	struct:elango_dev	file:
+devt	elango111.c	/^	dev_t devt;$/;"	m	struct:elango_dev	file:
+devt	elango_good.c	/^	dev_t devt;$/;"	m	struct:elango_dev	file:
+devt	elango_good1.c	/^	dev_t devt;$/;"	m	struct:elango_dev	file:
+elango_control	elango.c	/^struct elango_control {$/;"	s	file:
+elango_control	elango111.c	/^struct elango_control {$/;"	s	file:
+elango_control	elango_good.c	/^struct elango_control {$/;"	s	file:
+elango_control	elango_good1.c	/^struct elango_control {$/;"	s	file:
+elango_ctl	elango.c	/^ struct elango_control elango_ctl;$/;"	v	typeref:struct:elango_control
+elango_ctl	elango111.c	/^ struct elango_control elango_ctl;$/;"	v	typeref:struct:elango_control
+elango_ctl	elango_good.c	/^ struct elango_control elango_ctl;$/;"	v	typeref:struct:elango_control
+elango_ctl	elango_good1.c	/^ struct elango_control elango_ctl;$/;"	v	typeref:struct:elango_control
+elango_dev	elango.c	/^ struct elango_dev elango_dev;$/;"	v	typeref:struct:elango_dev
+elango_dev	elango.c	/^struct elango_dev {$/;"	s	file:
+elango_dev	elango111.c	/^ struct elango_dev elango_dev;$/;"	v	typeref:struct:elango_dev
+elango_dev	elango111.c	/^struct elango_dev {$/;"	s	file:
+elango_dev	elango_good.c	/^ struct elango_dev elango_dev;$/;"	v	typeref:struct:elango_dev
+elango_dev	elango_good.c	/^struct elango_dev {$/;"	s	file:
+elango_dev	elango_good1.c	/^ struct elango_dev elango_dev;$/;"	v	typeref:struct:elango_dev
+elango_dev	elango_good1.c	/^struct elango_dev {$/;"	s	file:
+elango_do_one_message	elango.c	/^static int elango_do_one_message(void)$/;"	f	file:
+elango_do_one_message	elango111.c	/^static int elango_do_one_message(void)$/;"	f	file:
+elango_do_one_message	elango_good.c	/^static int elango_do_one_message(void)$/;"	f	file:
+elango_do_one_message	elango_good1.c	/^static int elango_do_one_message(void)$/;"	f	file:
+elango_driver	elango.c	/^static struct spi_driver elango_driver = {$/;"	v	typeref:struct:spi_driver	file:
+elango_driver	elango111.c	/^static struct spi_driver elango_driver = {$/;"	v	typeref:struct:spi_driver	file:
+elango_driver	elango_good.c	/^static struct spi_driver elango_driver = {$/;"	v	typeref:struct:spi_driver	file:
+elango_driver	elango_good1.c	/^static struct spi_driver elango_driver = {$/;"	v	typeref:struct:spi_driver	file:
+elango_exit	elango.c	/^module_exit(elango_exit);$/;"	v
+elango_exit	elango.c	/^static void __exit elango_exit(void)$/;"	f	file:
+elango_exit	elango111.c	/^module_exit(elango_exit);$/;"	v
+elango_exit	elango111.c	/^static void __exit elango_exit(void)$/;"	f	file:
+elango_exit	elango_good.c	/^module_exit(elango_exit);$/;"	v
+elango_exit	elango_good.c	/^static void __exit elango_exit(void)$/;"	f	file:
+elango_exit	elango_good1.c	/^module_exit(elango_exit);$/;"	v
+elango_exit	elango_good1.c	/^static void __exit elango_exit(void)$/;"	f	file:
+elango_fops	elango.c	/^static const struct file_operations elango_fops = {$/;"	v	typeref:struct:file_operations	file:
+elango_fops	elango111.c	/^static const struct file_operations elango_fops = {$/;"	v	typeref:struct:file_operations	file:
+elango_fops	elango_good.c	/^static const struct file_operations elango_fops = {$/;"	v	typeref:struct:file_operations	file:
+elango_fops	elango_good1.c	/^static const struct file_operations elango_fops = {$/;"	v	typeref:struct:file_operations	file:
+elango_init	elango.c	/^module_init(elango_init);$/;"	v
+elango_init	elango.c	/^static int __init elango_init(void)$/;"	f	file:
+elango_init	elango111.c	/^module_init(elango_init);$/;"	v
+elango_init	elango111.c	/^static int __init elango_init(void)$/;"	f	file:
+elango_init	elango_good.c	/^module_init(elango_init);$/;"	v
+elango_init	elango_good.c	/^static int __init elango_init(void)$/;"	f	file:
+elango_init	elango_good1.c	/^module_init(elango_init);$/;"	v
+elango_init	elango_good1.c	/^static int __init elango_init(void)$/;"	f	file:
+elango_init_cdev	elango.c	/^static int __init elango_init_cdev(void)$/;"	f	file:
+elango_init_cdev	elango111.c	/^static int __init elango_init_cdev(void)$/;"	f	file:
+elango_init_cdev	elango_good.c	/^static int __init elango_init_cdev(void)$/;"	f	file:
+elango_init_cdev	elango_good1.c	/^static int __init elango_init_cdev(void)$/;"	f	file:
+elango_init_class	elango.c	/^static int __init elango_init_class(void)$/;"	f	file:
+elango_init_class	elango111.c	/^static int __init elango_init_class(void)$/;"	f	file:
+elango_init_class	elango_good.c	/^static int __init elango_init_class(void)$/;"	f	file:
+elango_init_class	elango_good1.c	/^static int __init elango_init_class(void)$/;"	f	file:
+elango_init_spi	elango.c	/^static int __init elango_init_spi(void)$/;"	f	file:
+elango_init_spi	elango111.c	/^static int __init elango_init_spi(void)$/;"	f	file:
+elango_init_spi	elango_good.c	/^static int __init elango_init_spi(void)$/;"	f	file:
+elango_init_spi	elango_good1.c	/^static int __init elango_init_spi(void)$/;"	f	file:
+elango_open	elango.c	/^static int elango_open(struct inode *inode, struct file *filp)$/;"	f	file:
+elango_open	elango111.c	/^static int elango_open(struct inode *inode, struct file *filp)$/;"	f	file:
+elango_open	elango_good.c	/^static int elango_open(struct inode *inode, struct file *filp)$/;"	f	file:
+elango_open	elango_good1.c	/^static int elango_open(struct inode *inode, struct file *filp)$/;"	f	file:
+elango_prepare_spi_message	elango.c	/^static void elango_prepare_spi_message(void)$/;"	f	file:
+elango_prepare_spi_message	elango111.c	/^static void elango_prepare_spi_message(void)$/;"	f	file:
+elango_prepare_spi_message	elango_good.c	/^static void elango_prepare_spi_message(void)$/;"	f	file:
+elango_prepare_spi_message	elango_good1.c	/^static void elango_prepare_spi_message(void)$/;"	f	file:
+elango_probe	elango.c	/^static int elango_probe(struct spi_device *spi_device)$/;"	f	file:
+elango_probe	elango111.c	/^static int elango_probe(struct spi_device *spi_device)$/;"	f	file:
+elango_probe	elango_good.c	/^static int elango_probe(struct spi_device *spi_device)$/;"	f	file:
+elango_probe	elango_good1.c	/^static int elango_probe(struct spi_device *spi_device)$/;"	f	file:
+elango_read	elango.c	/^static ssize_t elango_read(struct file *filp, char __user *buff, size_t count,$/;"	f	file:
+elango_read	elango111.c	/^static ssize_t elango_read(struct file *filp, char __user *buff, size_t count,$/;"	f	file:
+elango_read	elango_good.c	/^static ssize_t elango_read(struct file *filp, char __user *buff, size_t count,$/;"	f	file:
+elango_read	elango_good1.c	/^static ssize_t elango_read(struct file *filp, char __user *buff, size_t count,$/;"	f	file:
+elango_remove	elango.c	/^static int elango_remove(struct spi_device *spi_device)$/;"	f	file:
+elango_remove	elango111.c	/^static int elango_remove(struct spi_device *spi_device)$/;"	f	file:
+elango_remove	elango_good.c	/^static int elango_remove(struct spi_device *spi_device)$/;"	f	file:
+elango_remove	elango_good1.c	/^static int elango_remove(struct spi_device *spi_device)$/;"	f	file:
+fop_sem	elango.c	/^	struct semaphore fop_sem;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::semaphore	file:
+fop_sem	elango111.c	/^	struct semaphore fop_sem;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::semaphore	file:
+fop_sem	elango_good.c	/^	struct semaphore fop_sem;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::semaphore	file:
+fop_sem	elango_good1.c	/^	struct semaphore fop_sem;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::semaphore	file:
+msg	elango.c	/^	struct spi_message msg;$/;"	m	struct:elango_control	typeref:struct:elango_control::spi_message	file:
+msg	elango111.c	/^	struct spi_message msg;$/;"	m	struct:elango_control	typeref:struct:elango_control::spi_message	file:
+msg	elango_good.c	/^	struct spi_message msg;$/;"	m	struct:elango_control	typeref:struct:elango_control::spi_message	file:
+msg	elango_good1.c	/^	struct spi_message msg;$/;"	m	struct:elango_control	typeref:struct:elango_control::spi_message	file:
+null	elango.c	/^void null(void)$/;"	f
+null	elango111.c	/^void null(void)$/;"	f
+null	elango_good.c	/^void null(void)$/;"	f
+null	elango_good1.c	/^void null(void)$/;"	f
+rotate	elango.c	/^static void rotate(void)$/;"	f	file:
+rotate	elango111.c	/^static void rotate(void)$/;"	f	file:
+rotate	elango_good.c	/^static void rotate(void)$/;"	f	file:
+rotate	elango_good1.c	/^static void rotate(void)$/;"	f	file:
+rx_buff	elango.c	/^	u8 *rx_buff;$/;"	m	struct:elango_control	file:
+rx_buff	elango111.c	/^	u8 *rx_buff;$/;"	m	struct:elango_control	file:
+rx_buff	elango_good.c	/^	u8 *rx_buff;$/;"	m	struct:elango_control	file:
+rx_buff	elango_good1.c	/^	u8 *rx_buff;$/;"	m	struct:elango_control	file:
+spi_device	elango.c	/^	struct spi_device *spi_device;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::spi_device	file:
+spi_device	elango111.c	/^	struct spi_device *spi_device;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::spi_device	file:
+spi_device	elango_good.c	/^	struct spi_device *spi_device;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::spi_device	file:
+spi_device	elango_good1.c	/^	struct spi_device *spi_device;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::spi_device	file:
+spi_sem	elango.c	/^	struct semaphore spi_sem;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::semaphore	file:
+spi_sem	elango111.c	/^	struct semaphore spi_sem;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::semaphore	file:
+spi_sem	elango_good.c	/^	struct semaphore spi_sem;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::semaphore	file:
+spi_sem	elango_good1.c	/^	struct semaphore spi_sem;$/;"	m	struct:elango_dev	typeref:struct:elango_dev::semaphore	file:
+test_data	elango.c	/^	u8 test_data;	$/;"	m	struct:elango_dev	file:
+test_data	elango111.c	/^	u8 test_data;	$/;"	m	struct:elango_dev	file:
+test_data	elango_good.c	/^	u8 test_data;	$/;"	m	struct:elango_dev	file:
+test_data	elango_good1.c	/^	u8 test_data;	$/;"	m	struct:elango_dev	file:
+this_driver_name	elango.c	/^const char this_driver_name[] = "elango";$/;"	v
+this_driver_name	elango111.c	/^const char this_driver_name[] = "elango";$/;"	v
+this_driver_name	elango_good.c	/^const char this_driver_name[] = "elango";$/;"	v
+this_driver_name	elango_good1.c	/^const char this_driver_name[] = "elango";$/;"	v
+times	elango.c	/^u32 times[96][19] ={$/;"	v
+times	elango111.c	/^u32 times[96][19] ={$/;"	v
+times	elango_good.c	/^u32 times[96][19] ={$/;"	v
+times	elango_good1.c	/^u32 times[96][19] ={$/;"	v
+transfer	elango.c	/^	struct spi_transfer transfer;$/;"	m	struct:elango_control	typeref:struct:elango_control::spi_transfer	file:
+transfer	elango111.c	/^	struct spi_transfer transfer;$/;"	m	struct:elango_control	typeref:struct:elango_control::spi_transfer	file:
+transfer	elango_good.c	/^	struct spi_transfer transfer;$/;"	m	struct:elango_control	typeref:struct:elango_control::spi_transfer	file:
+transfer	elango_good1.c	/^	struct spi_transfer transfer;$/;"	m	struct:elango_control	typeref:struct:elango_control::spi_transfer	file:
+tx_buff	elango.c	/^	u8 *tx_buff; $/;"	m	struct:elango_control	file:
+tx_buff	elango111.c	/^	u8 *tx_buff; $/;"	m	struct:elango_control	file:
+tx_buff	elango_good.c	/^	u8 *tx_buff; $/;"	m	struct:elango_control	file:
+tx_buff	elango_good1.c	/^	u8 *tx_buff; $/;"	m	struct:elango_control	file:
+user_buff	elango.c	/^	char *user_buff;$/;"	m	struct:elango_dev	file:
+user_buff	elango111.c	/^	char *user_buff;$/;"	m	struct:elango_dev	file:
+user_buff	elango_good.c	/^	char *user_buff;$/;"	m	struct:elango_dev	file:
+user_buff	elango_good1.c	/^	char *user_buff;$/;"	m	struct:elango_dev	file:

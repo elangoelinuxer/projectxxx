@@ -1,0 +1,39 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+dev	pwm_test1.c	/^	struct device *dev;$/;"	m	struct:pwm_test	typeref:struct:pwm_test::device	file:
+duty	pwm_test1.c	/^	unsigned long period, duty, run, polarity, requested;$/;"	m	struct:pwm_test	file:
+duty_s	pwm_test1.c	/^	unsigned long period_s, duty_s, run_s, polarity_s, requested_s;$/;"	m	struct:pwm_test	file:
+period	pwm_test1.c	/^	unsigned long period, duty, run, polarity, requested;$/;"	m	struct:pwm_test	file:
+period_s	pwm_test1.c	/^	unsigned long period_s, duty_s, run_s, polarity_s, requested_s;$/;"	m	struct:pwm_test	file:
+polarity	pwm_test1.c	/^	unsigned long period, duty, run, polarity, requested;$/;"	m	struct:pwm_test	file:
+polarity_s	pwm_test1.c	/^	unsigned long period_s, duty_s, run_s, polarity_s, requested_s;$/;"	m	struct:pwm_test	file:
+pwm	pwm_test1.c	/^	struct pwm_device *pwm;$/;"	m	struct:pwm_test	typeref:struct:pwm_test::pwm_device	file:
+pwm_attrs	pwm_test1.c	/^static const struct attribute *pwm_attrs[] = {$/;"	v	typeref:struct:attribute	file:
+pwm_device_attr_group	pwm_test1.c	/^static const struct attribute_group pwm_device_attr_group = {$/;"	v	typeref:struct:attribute_group	file:
+pwm_test	pwm_test1.c	/^struct pwm_test {$/;"	s	file:
+pwm_test_class	pwm_test1.c	/^	struct class *pwm_test_class;$/;"	m	struct:pwm_test	typeref:struct:pwm_test::class	file:
+pwm_test_class_init	pwm_test1.c	/^static int __init pwm_test_class_init(struct device *dev)$/;"	f	file:
+pwm_test_driver	pwm_test1.c	/^module_platform_driver(pwm_test_driver);$/;"	v
+pwm_test_driver	pwm_test1.c	/^static struct platform_driver pwm_test_driver = {$/;"	v	typeref:struct:platform_driver	file:
+pwm_test_of_match	pwm_test1.c	/^static struct of_device_id pwm_test_of_match[] = {$/;"	v	typeref:struct:of_device_id	file:
+pwm_test_probe	pwm_test1.c	/^static int pwm_test_probe(struct platform_device *pdev)$/;"	f	file:
+pwm_test_remove	pwm_test1.c	/^static int pwm_test_remove(struct platform_device *pdev)$/;"	f	file:
+pwm_test_show_duty	pwm_test1.c	/^static ssize_t pwm_test_show_duty(struct device *dev,$/;"	f	file:
+pwm_test_show_period	pwm_test1.c	/^static ssize_t pwm_test_show_period(struct device *dev,$/;"	f	file:
+pwm_test_show_polarity	pwm_test1.c	/^static ssize_t pwm_test_show_polarity(struct device *dev,$/;"	f	file:
+pwm_test_show_request	pwm_test1.c	/^static ssize_t pwm_test_show_request(struct device *dev,$/;"	f	file:
+pwm_test_show_run	pwm_test1.c	/^static ssize_t pwm_test_show_run(struct device *dev,$/;"	f	file:
+pwm_test_store_duty	pwm_test1.c	/^static ssize_t pwm_test_store_duty(struct device *dev,$/;"	f	file:
+pwm_test_store_period	pwm_test1.c	/^static ssize_t pwm_test_store_period(struct device *dev,$/;"	f	file:
+pwm_test_store_polarity	pwm_test1.c	/^static ssize_t pwm_test_store_polarity(struct device *dev,$/;"	f	file:
+pwm_test_store_request	pwm_test1.c	/^static ssize_t pwm_test_store_request(struct device *dev,$/;"	f	file:
+pwm_test_store_run	pwm_test1.c	/^static ssize_t pwm_test_store_run(struct device *dev,$/;"	f	file:
+requested	pwm_test1.c	/^	unsigned long period, duty, run, polarity, requested;$/;"	m	struct:pwm_test	file:
+requested_s	pwm_test1.c	/^	unsigned long period_s, duty_s, run_s, polarity_s, requested_s;$/;"	m	struct:pwm_test	file:
+ret	pwm_test1.c	/^	int ret;$/;"	m	struct:pwm_test	file:
+run	pwm_test1.c	/^	unsigned long period, duty, run, polarity, requested;$/;"	m	struct:pwm_test	file:
+run_s	pwm_test1.c	/^	unsigned long period_s, duty_s, run_s, polarity_s, requested_s;$/;"	m	struct:pwm_test	file:

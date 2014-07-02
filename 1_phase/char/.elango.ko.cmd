@@ -1,0 +1,1 @@
+cmd_/home/elango/devicedriver/char/elango.ko := ld -r -m elf_x86_64 -T /usr/src/linux-headers-3.5.0-43-generic/scripts/module-common.lds --build-id  -o /home/elango/devicedriver/char/elango.ko /home/elango/devicedriver/char/elango.o /home/elango/devicedriver/char/elango.mod.o
