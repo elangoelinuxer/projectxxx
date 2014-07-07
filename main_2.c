@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include "check.h"
+#include "tamil.h"
 
 main()
 {
