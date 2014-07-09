@@ -556,9 +556,9 @@ for(i=0;i<26;i++)
 {
 m=0;
 
-//tmp[0]=tamil[m][i];
-//tmp[1]=tamil[++m][i];
-//tmp[2]=tamil[++m][i];
+tmp[0]=tamil[m][i];
+tmp[1]=tamil[++m][i];
+tmp[2]=tamil[++m][i];
 tmp[3]=0;
 tmp[4]=0;
 tmp[5]=0;
