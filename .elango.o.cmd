@@ -692,7 +692,7 @@ deps_/home/elango/1_printer/prg_driver/gpio/elango.o := \
     $(wildcard include/config/hibernate/callbacks.h) \
   include/linux/of_platform.h \
   /home/elango/1_printer/prg_driver/gpio/motor.h \
-  /home/elango/1_printer/prg_driver/gpio/new.h \
+  /home/elango/1_printer/prg_driver/gpio/tamil.h \
   include/linux/cdev.h \
 
 /home/elango/1_printer/prg_driver/gpio/elango.o: $(deps_/home/elango/1_printer/prg_driver/gpio/elango.o)
