@@ -1,1 +1,0 @@
-cmd_/home/elango/1_printer/prg_driver/gpio/elango.ko := arm-poky-linux-gnueabi-ld -EL -r  -T /home/elango/hd_poky/beaglebone/kernel/kernel/scripts/module-common.lds --build-id  -o /home/elango/1_printer/prg_driver/gpio/elango.ko /home/elango/1_printer/prg_driver/gpio/elango.o /home/elango/1_printer/prg_driver/gpio/elango.mod.o
