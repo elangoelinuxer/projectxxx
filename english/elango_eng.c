@@ -1,4 +1,5 @@
-//-----------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------
 
 #include<linux/module.h>
 #include<linux/string.h>
@@ -24,7 +25,9 @@
 #include <linux/device.h>
 #include "motor.h"
 #include "data.h"
-//---------------------------------------------------------------------------------
+
+
+//--------------------------------------------------------------------------------
 
 
 #include <linux/init.h>
@@ -36,28 +39,35 @@
 #include <linux/string.h>
 //#include <asm/uaccess.h>
 
+
 #define SPI_BUFF_SIZE	128
 #define USER_BUFF_SIZE	128
+
 
 #define SPI_BUS 1
 #define SPI_BUS_CS1 0
 #define SPI_BUS_SPEED 1000000
 
+
 //#define SPI_CS_HIGH	0x04
 //#define SPI_LSB_FIRST	0x08
 
+
 const char this_driver_name[] = "elango";
 
-struct elango_control {
+
+struct elango_control
+{
 	struct spi_message msg;
 	struct spi_transfer transfer;
 	u8 *tx_buff; 
 	u8 *rx_buff;
 };
 
- struct elango_control elango_ctl;
+struct elango_control elango_ctl;
 
-struct elango_dev {
+struct elango_dev
+{
 	struct semaphore spi_sem;
 	struct semaphore fop_sem;
 	dev_t devt;
@@ -68,9 +78,8 @@ struct elango_dev {
 	u8 test_data;	
 };
 
- struct elango_dev elango_dev;
 
-
+struct elango_dev elango_dev;
 char **buff;
 int length;
 
@@ -223,33 +232,28 @@ int i,j,k,m;
 
 int g[48],l=40;
 
-printk(KERN_ALERT "length is ...........   %d  \n",length);
+printk(KERN_ALERT "length is ...........%d  \n",length);
 
 for(k=0;k<48;k++)
 {
+
 if(k<(length-1))
 {
-
 g[k]=(**(buff))-32;
 ++(*buff);
-
 }
 else
 {
-
 g[k]=0;
-
 }
 
 if(g[k]==32)
 {
-
 g[k]=0;
-
 }
 
-}
 
+}
 
 printk(KERN_ALERT "g[0] is ...........%d \n", g[0]);
 printk(KERN_ALERT "g[1] is ...........%d \n", g[1]);
@@ -314,6 +318,7 @@ tmp[47]=times[g[++m]][i];
 
 spi_write(elango_dev.spi_device, addr, 48);
 
+
 /*
 if(buff==101)
 {
@@ -321,6 +326,7 @@ addr=&tmp[5];
 spi_write(elango_dev.spi_device, addr, 48);
 }
 */
+
 
 rotate();
 
@@ -333,11 +339,12 @@ spi_write(elango_dev.spi_device, addr, 48);
 
 //printk(KERN_ALERT "buff is ...........%d \n", buff);
 //printk(KERN_ALERT "*buff is ...........%d \n", *buff);
-//printk(KERN_ALERT "**buff is ...........%d \n", **(buff));   //65
+//printk(KERN_ALERT "**buff is ...........%d \n", **(buff));      //65
 //++(*buff);
-//printk(KERN_ALERT "**buff+1 is ...........%d \n", **(buff));   //66
-//++(*buff);
-//printk(KERN_ALERT "**buff+1 is ...........%d \n", **(buff));  //67
+//printk(KERN_ALERT "**buff+1 is ...........%d \n", **(buff));    //66
+//++(*buff); 
+//printk(KERN_ALERT "**buff+1 is ...........%d \n", **(buff));    //67
+
 
 rotate();
 rotate();

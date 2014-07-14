@@ -23,7 +23,7 @@
 #include <linux/of_device.h>
 #include <linux/device.h>
 #include "motor.h"
-#include "data.h"
+//#include "data.h"
 //---------------------------------------------------------------------------------
 
 
@@ -223,7 +223,9 @@ int i,j,k,m;
 
 int g[48],l=40;
 
+
 printk(KERN_ALERT "length is ...........   %d  \n",length);
+
 
 for(k=0;k<48;k++)
 {
@@ -254,6 +256,39 @@ g[k]=0;
 printk(KERN_ALERT "g[0] is ...........%d \n", g[0]);
 printk(KERN_ALERT "g[1] is ...........%d \n", g[1]);
 printk(KERN_ALERT "g[4] is ...........%d \n", g[4]);
+
+//--------------------------------------------------------------------
+
+
+if(g[0]==94)
+{
+
+printk(KERN_ALERT "1111...sucesss....%d \n",g[0]);
+
+switch(g[1])
+{
+
+case 84:  printk(KERN_ALERT "inside switch...tamil printing....\n");
+
+           break; 
+
+case 69:
+          printk(KERN_ALERT "inside switch....english printing....\n");
+
+           break;
+
+case 73:
+         printk(KERN_ALERT "inside switch...image printing.....\n");
+
+           break;
+
+}
+
+}
+
+
+//---------------------------------------------------------------------
+
 
 for(j=0;j<3;j++)
 {
