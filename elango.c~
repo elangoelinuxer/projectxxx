@@ -537,7 +537,7 @@ int g[50],l=40;
 printk(KERN_ALERT "length is ...........   %d  \n",length);
 
 
-for(k=0;k<50;k++)
+for(k=0;k<48;k++)
 {
 if(k<(length-1))
 {
