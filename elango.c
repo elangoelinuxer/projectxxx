@@ -23,7 +23,7 @@
 #include <linux/of_device.h>
 #include <linux/device.h>
 #include "motor.h"
-#include "new.h"
+#include "tamil.h"
 
 //---------------------------------------------------------------------------------
 
