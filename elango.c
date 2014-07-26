@@ -1,5 +1,4 @@
 //-----------------------------------------------------------------------------------
-
 #include<linux/module.h>
 #include<linux/string.h>
 #include<linux/fs.h>
@@ -74,9 +73,9 @@ struct elango_dev {
 
 struct elango_dev elango_dev;
 
+
 char **buff;
 int length;
-
 
 u8 image[300][38]={
 {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},
@@ -381,8 +380,6 @@ u8 image[300][38]={
 };  
 
 
-
-
 static void elango_prepare_spi_message()
 {
 
@@ -485,11 +482,11 @@ case 84:
 printk(KERN_ALERT "inside switch...tamil printing....\n");
 for(i=0;i<26;i++)
 {
-m=380;
+m=0;
 
 tmp[0]=tamil[m][i];
-tmp[0]=tamil[++m][i];
-tmp[0]=tamil[++m][i];
+tmp[1]=tamil[++m][i];
+tmp[2]=tamil[++m][i];
 tmp[3]=tamil[++m][i];
 tmp[4]=tamil[++m][i];
 tmp[5]=tamil[++m][i];
@@ -694,20 +691,17 @@ tmp[i]=0;
 }
 spi_write(elango_dev.spi_device, addr, 48);
 
-
 break;
 
 }
+
 
 }
 
 
 //---------------------------------------------------------------------
-
 //english kept here
-
 //----------------------------------------------------------------------
-
 
 //printk(KERN_ALERT "buff is ...........%d \n", buff);
 //printk(KERN_ALERT "*buff is ...........%d \n", *buff);
@@ -716,8 +710,6 @@ break;
 //printk(KERN_ALERT "**buff+1 is ...........%d \n", **(buff));   //66
 //++(*buff);
 //printk(KERN_ALERT "**buff+1 is ...........%d \n", **(buff));  //67
-
-
 
 rotate();
 rotate();
