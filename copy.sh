@@ -1,3 +1,3 @@
 make
-cp elango.ko  /home/elango/nfs/cups/home/
+sudo cp elango.ko  /home/elango/nfs/74xx/home/root/
 
