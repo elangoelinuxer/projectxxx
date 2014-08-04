@@ -463,11 +463,39 @@ g[k]=0;
 
 printk(KERN_ALERT "g[0] is ...........%d \n", g[0]);
 printk(KERN_ALERT "g[1] is ...........%d \n", g[1]);
+printk(KERN_ALERT "g[2] is ...........%d \n", g[2]);
+
+printk(KERN_ALERT "g[3] is ...........%d \n", g[3]);
 printk(KERN_ALERT "g[4] is ...........%d \n", g[4]);
+printk(KERN_ALERT "g[5] is ...........%d \n", g[5]);
+
+printk(KERN_ALERT "g[6] is ...........%d \n", g[6]);
+printk(KERN_ALERT "g[7] is ...........%d \n", g[7]);
+printk(KERN_ALERT "g[8] is ...........%d \n", g[8]);
+
+printk(KERN_ALERT "g[9] is ...........%d \n", g[9]);
+printk(KERN_ALERT "g[10] is ...........%d \n", g[10]);
+
+
+
+printk(KERN_ALERT "g[0] is ...........%c \n", g[0]);
+printk(KERN_ALERT "g[1] is ...........%c \n", g[1]);
+printk(KERN_ALERT "g[2] is ...........%c \n", g[2]);
+
+printk(KERN_ALERT "g[3] is ...........%c \n", g[3]);
+printk(KERN_ALERT "g[4] is ...........%c \n", g[4]);
+printk(KERN_ALERT "g[5] is ...........%c \n", g[5]);
+
+printk(KERN_ALERT "g[6] is ...........%c \n", g[6]);
+printk(KERN_ALERT "g[7] is ...........%c \n", g[7]);
+printk(KERN_ALERT "g[8] is ...........%c \n", g[8]);
+
+printk(KERN_ALERT "g[9] is ...........%c \n", g[9]);
+printk(KERN_ALERT "g[10] is ...........%c \n", g[10]);
+
 
 
 //--------------------------------------------------------------------
-
 
 if(g[0]==94)
 {
@@ -478,13 +506,13 @@ switch(g[1])
 {
 
 case 84:  
-
 printk(KERN_ALERT "inside switch...tamil printing....\n");
+
 for(i=0;i<26;i++)
 {
 
 m=0;
-tmp[0]=tamil[m][i];
+tmp[0]=tamil[g[2]][i];
 tmp[1]=0;
 tmp[2]=0;
 tmp[3]=0;
@@ -696,9 +724,7 @@ break;
 
 }
 
-
 }
-
 
 //---------------------------------------------------------------------
 //english kept here
@@ -756,12 +782,16 @@ static int elango_do_one_message(void)
 }
 */
 
-static ssize_t elango_write(struct file* F, const char *buf, size_t count, loff_t *f_pos)
+static ssize_t elango_write(struct file* F, const char *buf[], size_t count, loff_t *f_pos)
 {
 
 printk(KERN_ALERT "count is ...........   %d  \n",count);
 printk(KERN_ALERT "*buf is ...........   %d  \n",*buf);
 printk(KERN_ALERT "buf+1  is ...........   %d  \n",*(buf+1));
+
+
+printk(KERN_ALERT "checking ...........   %s  \n",buf);
+
 
 buff=&buf;
 length=count;
