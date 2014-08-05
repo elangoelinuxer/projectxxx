@@ -299,12 +299,14 @@ tmp[45]=times[g[++m]][i];
 tmp[46]=times[g[++m]][i];
 tmp[47]=times[g[++m]][i];
 
+
 spi_write(elango_dev.spi_device, addr, 48);
 rotate();
 
 }
 
 s++;
+
 gpio_direction_output(45,0);
 gpio_direction_output(44,0);
 gpio_direction_output(26,0);
@@ -318,7 +320,6 @@ goto ela;
 
 
 spi_message_add_tail(&elango_ctl.transfer, &elango_ctl.msg);
-
 //-----------------------------------------------------------------------------------
 
 
@@ -336,6 +337,8 @@ length=count;
 
 ssize_t status = 0;
 
+
+	
         if (down_interruptible(&elango_dev.spi_sem))
 		return -ERESTARTSYS;
 
@@ -350,9 +353,8 @@ ssize_t status = 0;
 	status = spi_sync(elango_dev.spi_device, &elango_ctl.msg);
 	up(&elango_dev.spi_sem);
 
-//------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------
 	/* write data to the buffer */
-
 
 	if ( copy_from_user(elango_dev.user_buff, buf, count) ) 
         {
@@ -404,10 +406,12 @@ static ssize_t elango_read(struct file *filp, char __user *buff, size_t count,
 			"elango_do_one_message failed : %d\n",
 			status);
 	}
+
 	else 
         {
 		sprintf(elango_dev.user_buff, 
-			"Status: %d\n printing ..........  \n");	
+			"Status: %d\n printing ..........  \n");
+		
 	}
 
 */

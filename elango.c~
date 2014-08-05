@@ -568,22 +568,29 @@ gpio_direction_output(45,1);
 gpio_direction_output(44,1);
 gpio_direction_output(26,1);
 
-for(k=2;k<48;k++)
+for(k=2;k<50;k++)
 {
+
 ++lencheck;
 if((k<(length-1)) && lencheck<(length-1) )
 {
+
 g[k]=(**(buff))-32;
 ++(*buff);
+
 }
 else
 {
+
 g[k]=0;
+
 }
 
 if(g[k]==32)
 {
+
 g[k]=0;
+
 }
 
 }
