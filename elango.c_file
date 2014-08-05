@@ -300,7 +300,6 @@ tmp[46]=times[g[++m]][i];
 tmp[47]=times[g[++m]][i];
 
 
-
 spi_write(elango_dev.spi_device, addr, 48);
 rotate();
 
