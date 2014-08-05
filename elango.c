@@ -673,10 +673,9 @@ spi_write(elango_dev.spi_device, addr, 48);
 
 case 73:
 
-           printk(KERN_ALERT "inside switch...image printing.....\n");
+           printk(KERN_ALERT "inside switch.....image printing.....\n");
 
 //#########################################
-
 
 for(k=2;k<50;k++)
 {
@@ -703,8 +702,8 @@ g[k]=0;
 
 }
 
-//##########################################
 
+//###############################################
 
 
 for(i=0;i<300;i++)
@@ -789,8 +788,6 @@ gpio_direction_output(26,0);
 
 	memset(elango_ctl.rx_buff, 0, SPI_BUFF_SIZE);
 	spi_message_add_tail(&elango_ctl.transfer, &elango_ctl.msg);
-
-
 
 //-----------------------------------------------------------------------------------
 
