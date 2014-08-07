@@ -57,7 +57,6 @@ struct elango_control
 	u8 *rx_buff;
 };
 
-
 struct elango_control elango_ctl;
 struct elango_dev {
 	struct semaphore spi_sem;
@@ -70,9 +69,7 @@ struct elango_dev {
 	u8 test_data;	
 };
 
-
 struct elango_dev elango_dev;
-
 
 char **buff;
 int length;
@@ -809,7 +806,6 @@ buff=&buf;
 length=count;
 
 ssize_t status = 0;
-
 
 //-----------------------------------------------------------------------------------------
 	
