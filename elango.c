@@ -573,7 +573,6 @@ gpio_direction_output(45,1);
 gpio_direction_output(44,1);
 gpio_direction_output(26,1);
 
-
 for(k=2;k<50;k++)
 {
 ++lencheck;
