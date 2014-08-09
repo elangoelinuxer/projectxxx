@@ -77,6 +77,12 @@ struct elango_dev elango_dev;
 char **buff;
 int length;
 
+
+u8 tmp1[48];
+int i,j,k,m,s=0;
+
+
+
 u8 image[300][38]={
 {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},
 {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},
@@ -423,14 +429,16 @@ elango_dev.spi_device->bits_per_word=8;
 
 u8 tmp[48];
 u32 *addr=&tmp;
+u32 *addr1=&tmp1;
+
 
 tmp[0]=tmp[1]=tmp[2]=tmp[3]=tmp[4]=tmp[5]=tmp[6]=tmp[7]=tmp[8]=tmp[9]=tmp[10]=tmp[11]=tmp[12]=tmp[13]=tmp[14]=tmp[15]=tmp[16]=tmp[17]=tmp[18]=tmp[19]=tmp[20]=tmp[21]=tmp[22]=tmp[23]=tmp[24]=tmp[25]=tmp[26]=tmp[27]=tmp[28]=tmp[29]=tmp[30]=tmp[31]=tmp[32]=tmp[33]=tmp[34]=tmp[35]=tmp[36]=tmp[37]=tmp[38]=tmp[39]=tmp[40]=tmp[41]=tmp[42]=tmp[43]=tmp[44]=tmp[45]=tmp[46]=tmp[47]=0;
 
-int i,j,k,m,s=0;
 
-int g[50],l=40,lencheck=0;
+int g[48+length],l=40,lencheck=0;
 
 printk(KERN_ALERT "length is ...........   %d  \n",length);
+
 
 for(k=0;k<=1;k++)
 {
@@ -440,13 +448,12 @@ g[k]=(**(buff))-32;
 
 }
 
-
 printk(KERN_ALERT "g[0] is ...........%d \n", g[0]);
 printk(KERN_ALERT "g[1] is ...........%d \n", g[1]);
 printk(KERN_ALERT "g[2] is ...........%d \n", g[2]);
 
-
 //--------------------------------------------------------------------
+
 
 if(g[0]==94)
 {
@@ -562,28 +569,36 @@ case 69:
 //###########################
 
 
+
 ela:
 
 gpio_direction_output(45,1);
 gpio_direction_output(44,1);
 gpio_direction_output(26,1);
 
-for(k=2;k<48;k++)
+
+for(k=2;k<50;k++)
 {
 ++lencheck;
 if((k<(length-1)) && lencheck<(length-1) )
 {
+
 g[k]=(**(buff))-32;
 ++(*buff);
+
 }
 else
 {
+
 g[k]=0;
+
 }
 
 if(g[k]==32)
 {
+
 g[k]=0;
+
 }
 
 }
@@ -651,8 +666,6 @@ spi_write(elango_dev.spi_device, addr, 48);
 ////////////////////this rotate is to control the length of the character
 
 rotate();
-
-
 //////////////////////////////////////////////////////////////////////////
 
 }
@@ -669,6 +682,7 @@ if(lencheck<length)
 {
 goto ela;
 }
+
 
 ///----------------------
 
