@@ -455,12 +455,16 @@ printk(KERN_ALERT "1111...sucesss g[0]....%d \n",g[0]);
 switch(g[1])
 {
 
-
 case 66:
 
-//##########################   bmp printing  ############################  
 
+//#############################   bmp printing   ##############################  
+
+
+printk(KERN_ALERT "bmp....%d \n",g[0]);
 printk(KERN_ALERT "bmp....%d \n",g[1]);
+printk(KERN_ALERT "bmp....%d \n",g[2]);
+printk(KERN_ALERT "bmp....%d \n",g[3]);
 
 ela1:
 
@@ -471,6 +475,7 @@ gpio_direction_output(26,1);
 for(k=2;k<50;k++)
 {
 ++lencheck;
+
 if((k<(length-1)) && lencheck<(length-1) )
 {
 
@@ -487,15 +492,10 @@ g[k]=0;
 
 if(g[k]==32)
 {
-
 g[k]=0;
-
 }
 
 }
-
-//#####################################
-
 
 for(i=0;i<16;i++)
 {
@@ -573,6 +573,8 @@ if(lencheck<length)
 {
 goto ela1;
 }
+
+
 
 
 //########################## end of bmp ##########################################
