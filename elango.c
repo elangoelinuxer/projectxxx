@@ -443,15 +443,15 @@ g[k]=(**(buff))-32;
 
 }
 
-printk(KERN_ALERT "g[0] is ...........%d \n", g[0]);
-printk(KERN_ALERT "g[1] is ...........%d \n", g[1]);
-printk(KERN_ALERT "g[2] is ...........%d \n", g[2]);
+//printk(KERN_ALERT "g[0] is ...........%d \n", g[0]);
+//printk(KERN_ALERT "g[1] is ...........%d \n", g[1]);
+//printk(KERN_ALERT "g[2] is ...........%d \n", g[2]);
 
 //---------------------------------------------------------------------------------------------------
 
 if(g[0]==94)
 {
-printk(KERN_ALERT "1111...sucesss g[0]....%d \n",g[0]);
+//printk(KERN_ALERT "1111...sucesss g[0]....%d \n",g[0]);
 
 switch(g[1])
 {
@@ -460,10 +460,8 @@ case 66:
 
 //#############################   bmp printing   ##############################
 
-printk(KERN_ALERT "bmp....%d \n",g[0]);
-printk(KERN_ALERT "bmp....%d \n",g[1]);
-printk(KERN_ALERT "bmp....%d \n",g[2]);
-printk(KERN_ALERT "bmp....%d \n",g[3]);
+printk(KERN_ALERT "bmp....g[0] %d \n",g[0]);
+printk(KERN_ALERT "bmp....g[0] %d \n",g[1]);
 
 ela1:
 
@@ -498,6 +496,11 @@ g[k]=0;
 
 }
 
+
+
+printk(KERN_ALERT "bmp....g[2] %d \n",g[2]);
+printk(KERN_ALERT "bmp....g[3] %d \n",g[3]);
+		
 ///////////////////////////////////
 
 bmp_conv();
@@ -574,7 +577,7 @@ gpio_direction_output(45,0);
 gpio_direction_output(44,0);
 gpio_direction_output(26,0);
 
-printk(KERN_ALERT "lencheck is........... %d  \n",lencheck);
+//printk(KERN_ALERT "lencheck is........... %d  \n",lencheck);
 
 if(lencheck<length)
 {
@@ -928,11 +931,11 @@ gpio_direction_output(26,0);
 static ssize_t elango_write(struct file* F, const char *buf[], size_t count, loff_t *f_pos)
 {
 
-printk(KERN_ALERT "count is ...........   %d  \n",count);
-printk(KERN_ALERT "*buf is ...........   %d  \n",*buf);
-printk(KERN_ALERT "buf+1  is ...........   %d  \n",*(buf+1));
+//printk(KERN_ALERT "count is ...........   %d  \n",count);
+//printk(KERN_ALERT "*buf is ...........   %d  \n",*buf);
+//printk(KERN_ALERT "buf+1  is ...........   %d  \n",*(buf+1));
+//printk(KERN_ALERT "checking ...........   %s  \n",buf);
 
-printk(KERN_ALERT "checking ...........   %s  \n",buf);
 
 buff=&buf;
 length=count;

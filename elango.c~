@@ -462,8 +462,6 @@ case 66:
 
 printk(KERN_ALERT "bmp....%d \n",g[0]);
 printk(KERN_ALERT "bmp....%d \n",g[1]);
-printk(KERN_ALERT "bmp....%d \n",g[2]);
-printk(KERN_ALERT "bmp....%d \n",g[3]);
 
 ela1:
 
@@ -500,13 +498,14 @@ g[k]=0;
 
 
 
+printk(KERN_ALERT "bmp....%d \n",g[2]);
+printk(KERN_ALERT "bmp....%d \n",g[3]);
+
 ///////////////////////////////////
 
 bmp_conv();
 
 //////////////////////////////////
-
-
 
 for(i=0;i<16;i++)
 {
@@ -514,7 +513,7 @@ for(i=0;i<16;i++)
 m=2;
 
 //bmp_conv();
-tmp[0]=0;
+//tmp[0]=0;
 tmp[1]=0;
 tmp[2]=0;
 tmp[3]=0;
@@ -572,7 +571,6 @@ rotate();
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
-
 
 s++;
 gpio_direction_output(45,0);
