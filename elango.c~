@@ -506,7 +506,7 @@ bmp_conv();
 
 //////////////////////////////////
 
-for(i=0;i<2;i++)
+for(i=0;i<4;i++)
 {
 
 /*
@@ -558,8 +558,10 @@ tmp[43]=0;
 tmp[44]=0;
 tmp[45]=0;
 tmp[46]=0;
-tmp[47]=0;
 */
+
+tmp[47]=0xff;
+
 
 
 spi_write(elango_dev.spi_device, addr, 48);
