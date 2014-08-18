@@ -1,5 +1,5 @@
 
-extern int var_1=0;
+extern int var_1;
 
 bmp_length()
 {
