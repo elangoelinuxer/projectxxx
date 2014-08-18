@@ -81,7 +81,6 @@ int i,j,k,m,s=0;
 u8 tmp[48];
 u32 *addr=&tmp;
 u32 *addr1=&tmp1;
-//int g[48+length],l=40,lencheck=0;
 int g[2000],l=40,lencheck=0;
 int var_1=0,var_2=0,z=1;
 
@@ -485,7 +484,7 @@ bmp_length();
 
 /////////////
 
-printk(KERN_ALERT "in main program..... 01...%d \n",var_1);
+printk(KERN_ALERT "in main program.....01...%d \n",var_1);
 
 ////////////
 
@@ -506,12 +505,6 @@ g[k]=0;
 }
 
 }
-
-printk(KERN_ALERT "bmp....g[2] %d \n",g[2]);
-printk(KERN_ALERT "bmp....g[3] %d \n",g[3]);
-printk(KERN_ALERT "bmp....g[4] %d \n",g[4]);
-printk(KERN_ALERT "bmp....g[5] %d \n",g[5]);
-printk(KERN_ALERT "var_1... %d \n",var_1);
 
 ela1:
 
@@ -550,8 +543,17 @@ gpio_direction_output(45,1);
 gpio_direction_output(44,1);
 gpio_direction_output(26,1);
 
+printk(KERN_ALERT "bmp....g[2] %d \n",g[2]);
+printk(KERN_ALERT "bmp....g[3] %d \n \n \n",g[3]);
+printk(KERN_ALERT "bmp....g[4] %d \n",g[4]);
+printk(KERN_ALERT "bmp....g[5] %d \n",g[5]);
+printk(KERN_ALERT "var_1...... %d \n",var_1);
 
 bmp_conv();
+
+//tmp[0]=0xff;
+
+printk(KERN_ALERT "tmp[0].......%d \n",tmp[0]);
 
 spi_write(elango_dev.spi_device, addr, 48);
 
@@ -672,6 +674,7 @@ break;
 case 69:
           printk(KERN_ALERT "inside switch....english printing....\n");
 
+
 //###########################
 
 ela:
@@ -706,8 +709,7 @@ g[k]=0;
 
 }
 
-//#####################################
-
+//##################################################################################################
 
 for(i=0;i<16;i++)
 {
@@ -772,7 +774,6 @@ rotate();
 
 }
 
-
 s++;
 gpio_direction_output(45,0);
 gpio_direction_output(44,0);
@@ -785,7 +786,6 @@ if(lencheck<length)
 goto ela;
 }
 
-
 lencheck=0;
 
 ///----------------------
@@ -795,33 +795,6 @@ lencheck=0;
 case 73:
 
            printk(KERN_ALERT "inside switch.....image printing.....\n");
-
-//#########################################
-
-for(k=2;k<50;k++)
-{
-if(k<(length-1))
-{
-
-g[k]=(**(buff))-32;
-++(*buff);
-
-}
-else
-{
-
-g[k]=0;
-
-}
-
-if(g[k]==32)
-{
-
-g[k]=0;
-
-}
-
-}
 
 //###############################################
 
