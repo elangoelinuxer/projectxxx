@@ -1,8 +1,10 @@
 
-extern var_1=0;
+extern int var_1;
 
 bmp_length()
 {
+
+
 
 
 ////00 - 09 ///////
@@ -14,12 +16,18 @@ var_1=0;
 
 }
 
+
 if(g[2]==16 && g[3]==17)  //01          
 {
 
 var_1=1;
 
 }
+
+
+printk(KERN_ALERT "in funct..... 01...%d \n",var_1);
+
+
 if(g[2]==16 && g[3]==18)  //02          
 {
 

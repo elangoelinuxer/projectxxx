@@ -1,4 +1,5 @@
 //-----------------------------------------------------------------------------------
+
 #include<linux/module.h>
 #include<linux/string.h>
 #include<linux/fs.h>
@@ -74,7 +75,7 @@ struct elango_dev {
 struct elango_dev elango_dev;
 
 char **buff;
-int length=0;
+int length;
 u8 tmp1[48];
 int i,j,k,m,s=0;
 u8 tmp[48];
@@ -82,7 +83,7 @@ u32 *addr=&tmp;
 u32 *addr1=&tmp1;
 //int g[48+length],l=40,lencheck=0;
 int g[2000],l=40,lencheck=0;
-
+int var_1=0,var_2=0,z=1;
 
 u8 image[300][38]={
 {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},
@@ -422,15 +423,16 @@ gpio_export(26,true);
 	/* put some changing values in tx_buff for testing */	
 //...................................................................
 
+
 gpio_direction_output(45,1);
 gpio_direction_output(44,1);
 gpio_direction_output(26,1);
+
 
 elango_dev.spi_device->bits_per_word=8;
 
 
 tmp[0]=tmp[1]=tmp[2]=tmp[3]=tmp[4]=tmp[5]=tmp[6]=tmp[7]=tmp[8]=tmp[9]=tmp[10]=tmp[11]=tmp[12]=tmp[13]=tmp[14]=tmp[15]=tmp[16]=tmp[17]=tmp[18]=tmp[19]=tmp[20]=tmp[21]=tmp[22]=tmp[23]=tmp[24]=tmp[25]=tmp[26]=tmp[27]=tmp[28]=tmp[29]=tmp[30]=tmp[31]=tmp[32]=tmp[33]=tmp[34]=tmp[35]=tmp[36]=tmp[37]=tmp[38]=tmp[39]=tmp[40]=tmp[41]=tmp[42]=tmp[43]=tmp[44]=tmp[45]=tmp[46]=tmp[47]=0;
-
 
 
 printk(KERN_ALERT "length is ...........   %d  \n",length);
@@ -444,7 +446,10 @@ g[k]=(**(buff))-32;
 }
 
 
+
 //---------------------------------------------------------------------------------------------------
+
+
 
 if(g[0]==94)
 {
@@ -460,7 +465,6 @@ case 66:
 printk(KERN_ALERT "bmp....g[0] %d \n",g[0]);
 printk(KERN_ALERT "bmp....g[1] %d \n",g[1]);
 
-int var_1=0,var_2=0,z=1;
 
 g[2]=(**(buff))-32;
 ++(*buff);
@@ -475,18 +479,20 @@ g[k]=0;
 
 /////////////
 
-// function call to set  "var_1"  variable
+//function call to set  "var_1"  variable
 
 bmp_length();
 
 /////////////
 
+printk(KERN_ALERT "in main program..... 01...%d \n",var_1);
+
+////////////
 
 for(k=4;k<=99;k++)
 {
 
 ++lencheck;
-
 ++var_2;
 
 if(lencheck<=var_1)
@@ -506,7 +512,6 @@ printk(KERN_ALERT "bmp....g[3] %d \n",g[3]);
 printk(KERN_ALERT "bmp....g[4] %d \n",g[4]);
 printk(KERN_ALERT "bmp....g[5] %d \n",g[5]);
 printk(KERN_ALERT "var_1... %d \n",var_1);
-
 
 ela1:
 
