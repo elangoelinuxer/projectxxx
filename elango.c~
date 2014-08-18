@@ -443,6 +443,9 @@ g[k]=(**(buff))-32;
 
 }
 
+//printk(KERN_ALERT "g[0] is ...........%d \n", g[0]);
+//printk(KERN_ALERT "g[1] is ...........%d \n", g[1]);
+//printk(KERN_ALERT "g[2] is ...........%d \n", g[2]);
 
 //---------------------------------------------------------------------------------------------------
 
@@ -759,6 +762,7 @@ tmp[47]=times[g[++m]][i];
 
 spi_write(elango_dev.spi_device, addr, 48);
 
+
 ////////////////////this rotate is to control the length of the character
 
 rotate();
@@ -778,6 +782,7 @@ if(lencheck<length)
 {
 goto ela;
 }
+
 
 
 ///----------------------
