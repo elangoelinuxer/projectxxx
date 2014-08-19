@@ -320,9 +320,9 @@ for(i=0;i<26;i++)
 {
 
 m=0;
-tmp[0]=tamil[g[2]][i];
-tmp[1]=0;
-tmp[2]=0;
+tmp[0]=tamil[0][i];
+tmp[1]=tamil[1][i];
+tmp[2]=tamil[2][i];
 tmp[3]=0;
 tmp[4]=0;
 tmp[5]=0;
