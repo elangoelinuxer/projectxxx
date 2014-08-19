@@ -484,9 +484,10 @@ bmp_length();
 
 /////////////
 
-printk(KERN_ALERT "in main program.....01...%d \n",var_1);
+printk(KERN_ALERT "in main program..... 01...%d \n",var_1);
 
 ////////////
+
 
 for(k=4;k<=99;k++)
 {
@@ -544,7 +545,7 @@ gpio_direction_output(44,1);
 gpio_direction_output(26,1);
 
 printk(KERN_ALERT "bmp....g[2] %d \n",g[2]);
-printk(KERN_ALERT "bmp....g[3] %d \n \n \n",g[3]);
+printk(KERN_ALERT "bmp....g[3] %d \n",g[3]);
 printk(KERN_ALERT "bmp....g[4] %d \n",g[4]);
 printk(KERN_ALERT "bmp....g[5] %d \n",g[5]);
 printk(KERN_ALERT "var_1...... %d \n",var_1);
@@ -552,8 +553,6 @@ printk(KERN_ALERT "var_1...... %d \n",var_1);
 bmp_conv();
 
 //tmp[0]=0xff;
-
-printk(KERN_ALERT "tmp[0].......%d \n",tmp[0]);
 
 spi_write(elango_dev.spi_device, addr, 48);
 

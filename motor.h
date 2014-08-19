@@ -5,6 +5,8 @@ static void rotate(void)
 int j=1;
 gpio_direction_output(117,1);
 
+//udelay(500);
+
 while(j>0)
 {
 
