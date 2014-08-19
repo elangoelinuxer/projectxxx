@@ -319,6 +319,7 @@ printk(KERN_ALERT "inside switch...tamil printing...........\n");
 for(i=0;i<26;i++)
 {
 
+
 m=0;
 tmp[0]=tamil[0][i];
 tmp[1]=tamil[1][i];
