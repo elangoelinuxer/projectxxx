@@ -29,6 +29,8 @@
 #include "bmp.h"
 #include "bmp_length.h"
 #include "image.h"
+#include "tamil_string_conv.h"
+
 
 //---------------------------------------------------------------------------------
 
@@ -84,6 +86,10 @@ u32 *addr=&tmp;
 u32 *addr1=&tmp1;
 int g[2000],l=40,lencheck=0;
 int var_1=0,var_2=0,z=1;
+int a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18,a19,a20,a21,a22,a23,a24;
+int a25,a26,a27,a28,a29,a30,a31,a32,a33,a34,a35,a36,a37,a38,a39,a40,a41,a42,a43,a44,a45,a46,a47;  
+
+
 
 
 static void elango_prepare_spi_message()
@@ -312,62 +318,67 @@ g[k]=0;
 
 }
 
-
 printk(KERN_ALERT "inside switch...tamil printing...........\n");
+
+
+a0=a1=a2=a3=a4=a5=a6=a7=a8=a9=a10=a11=a12=a13=a14=a15=a16=a17=a18=a19=a20=a21=a22=a23=a24=a25=3;
+a26=a27=a28=a29=a30=a31=a32=a33=a34=a35=a36=a37=a38=a39=a40=a41=a42=a43=a44=a45=a46=a47=3;
+
+conversion();
 
 
 for(i=0;i<26;i++)
 {
 
 m=0;
-tmp[0]=tamil[0][i];
-tmp[1]=tamil[1][i];
-tmp[2]=tamil[2][i];
-tmp[3]=0;
-tmp[4]=0;
-tmp[5]=0;
-tmp[6]=0;
-tmp[7]=0;
-tmp[8]=0;
-tmp[9]=0;
-tmp[10]=0;
-tmp[11]=0;
-tmp[12]=0;
-tmp[13]=0;
-tmp[14]=0;
-tmp[15]=0;
-tmp[16]=0;
-tmp[17]=0;
-tmp[18]=0;
-tmp[19]=0;
-tmp[20]=0;
-tmp[21]=0;
-tmp[22]=0;
-tmp[23]=0;
-tmp[24]=0;
-tmp[25]=0;
-tmp[26]=0;
-tmp[27]=0;
-tmp[28]=0;
-tmp[29]=0;
-tmp[30]=0;
-tmp[31]=0;
-tmp[32]=0;
-tmp[33]=0;
-tmp[34]=0;
-tmp[35]=0;
-tmp[36]=0;
-tmp[37]=0;
-tmp[38]=0;
-tmp[39]=0;
-tmp[40]=0;
-tmp[41]=0;
-tmp[42]=0;
-tmp[43]=0;
-tmp[44]=0;
-tmp[45]=0;
-tmp[46]=0;
-tmp[47]=0;
+tmp[0]=tamil[a0][i];
+tmp[1]=tamil[a1][i];
+tmp[2]=tamil[a2][i];
+tmp[3]=tamil[a3][i];
+tmp[4]=tamil[a4][i];
+tmp[5]=tamil[a5][i];
+tmp[6]=tamil[a6][i];
+tmp[7]=tamil[a7][i];
+tmp[8]=tamil[a8][i];
+tmp[9]=tamil[a9][i];
+tmp[10]=tamil[a10][i];
+tmp[11]=tamil[a11][i];
+tmp[12]=tamil[a12][i];
+tmp[13]=tamil[a13][i];
+tmp[14]=tamil[a14][i];
+tmp[15]=tamil[a15][i];
+tmp[16]=tamil[a16][i];
+tmp[17]=tamil[a17][i];
+tmp[18]=tamil[a18][i];
+tmp[19]=tamil[a19][i];
+tmp[20]=tamil[a20][i];
+tmp[21]=tamil[a21][i];
+tmp[22]=tamil[a22][i];
+tmp[23]=tamil[a23][i];
+tmp[24]=tamil[a24][i];
+tmp[25]=tamil[a25][i];
+tmp[26]=tamil[a26][i];
+tmp[27]=tamil[a27][i];
+tmp[28]=tamil[a28][i];
+tmp[29]=tamil[a29][i];
+tmp[30]=tamil[a30][i];
+tmp[31]=tamil[a31][i];
+tmp[32]=tamil[a32][i];
+tmp[33]=tamil[a33][i];
+tmp[34]=tamil[a34][i];
+tmp[35]=tamil[a35][i];
+tmp[36]=tamil[a36][i];
+tmp[37]=tamil[a37][i];
+tmp[38]=tamil[a38][i];
+tmp[39]=tamil[a39][i];
+tmp[40]=tamil[a40][i];
+tmp[41]=tamil[a41][i];
+tmp[42]=tamil[a42][i];
+tmp[43]=tamil[a43][i];
+tmp[44]=tamil[a44][i];
+tmp[45]=tamil[a45][i];
+tmp[46]=tamil[a46][i];
+tmp[47]=tamil[a47][i];
 
 spi_write(elango_dev.spi_device, addr, 48);
 rotate();
