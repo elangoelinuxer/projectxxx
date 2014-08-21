@@ -297,34 +297,101 @@ case 84:
 
 //################################   tamil printing   ###############################
 
+/*
 
-for(k=2;k<50;k++)
+for(k=0;k<143;k++)
+{
+g[k]=16;
+}
+
+*/
+
+tmp[0]=tmp[1]=tmp[2]=tmp[3]=tmp[4]=tmp[5]=tmp[6]=tmp[7]=tmp[8]=tmp[9]=tmp[10]=tmp[11]=tmp[12]=tmp[13]=tmp[14]=tmp[15]=tmp[16]=tmp[17]=tmp[18]=tmp[19]=tmp[20]=tmp[21]=tmp[22]=tmp[23]=tmp[24]=tmp[25]=tmp[26]=tmp[27]=tmp[28]=tmp[29]=tmp[30]=tmp[31]=tmp[32]=tmp[33]=tmp[34]=tmp[35]=tmp[36]=tmp[37]=tmp[38]=tmp[39]=tmp[40]=tmp[41]=tmp[42]=tmp[43]=tmp[44]=tmp[45]=tmp[46]=tmp[47]=0;
+
+
+for(k=2;k<194;k++)
 {
 
-if(k<(length-1))
+
+if(k<=(length-2))
 {
 g[k]=(**(buff))-32;
 ++(*buff);
 }
 else
 {
-g[k]=0;
-}
-
-if(g[k]==32)
-{
-g[k]=0;
+g[k]=16;   // ascii of 0
 }
 
 }
+
+printk(KERN_ALERT  "bfr conv....g[151] %d \n",g[151]);
+printk(KERN_ALERT  "bfr conv....g[152] %d \n",g[152]);
+printk(KERN_ALERT  "bfr conv....g[153] %d \n",g[153]);
+
+printk(KERN_ALERT "bfr conv ....a37 %d \n",a37);
+
 
 printk(KERN_ALERT "inside switch...tamil printing...........\n");
 
-
-a0=a1=a2=a3=a4=a5=a6=a7=a8=a9=a10=a11=a12=a13=a14=a15=a16=a17=a18=a19=a20=a21=a22=a23=a24=a25=3;
-a26=a27=a28=a29=a30=a31=a32=a33=a34=a35=a36=a37=a38=a39=a40=a41=a42=a43=a44=a45=a46=a47=3;
-
 conversion();
+
+///testing .....................
+
+printk(KERN_ALERT "count is ...........   %d  \n",length);
+
+/*
+
+printk(KERN_ALERT "....g[2] %d \n",g[2]);
+
+printk(KERN_ALERT "....g[3] %d \n",g[3]);
+printk(KERN_ALERT "....g[4] %d \n",g[4]);
+printk(KERN_ALERT "....g[5] %d \n",g[5]);
+printk(KERN_ALERT "....g[6] %d \n",g[6]);
+printk(KERN_ALERT "....g[7] %d \n",g[7]);
+printk(KERN_ALERT "....g[8] %d \n",g[8]);
+printk(KERN_ALERT "....g[9] %d \n",g[9]);
+printk(KERN_ALERT "....g[10] %d \n",g[10]);
+printk(KERN_ALERT "....g[11] %d \n",g[11]);
+printk(KERN_ALERT "....g[12] %d \n",g[12]);
+printk(KERN_ALERT "....g[13] %d \n",g[13]);
+
+*/
+
+
+
+printk(KERN_ALERT  "afr conv....g[151] %d \n",g[151]);
+printk(KERN_ALERT  "afr conv....g[152] %d \n",g[152]);
+printk(KERN_ALERT  "afr conv....g[153] %d \n",g[153]);
+
+printk(KERN_ALERT "afr conv ....a37 %d \n",a37);
+
+
+
+
+
+/*
+//############## a0 ####################3
+
+g[3]=g[3]-16;
+g[4]=g[4]-16;
+g[5]=g[5]-16;
+
+a0=g[3]*100+g[4]*10+g[5];
+
+//############## a1 #####################
+
+g[7]=g[7]-16;
+g[8]=g[8]-16;
+g[9]=g[9]-16;
+
+a1=g[7]*100+g[8]*10+g[9];
+
+*/
+
+
+//..............................
+
 
 
 for(i=0;i<26;i++)
@@ -379,6 +446,11 @@ tmp[44]=tamil[a44][i];
 tmp[45]=tamil[a45][i];
 tmp[46]=tamil[a46][i];
 tmp[47]=tamil[a47][i];
+
+//tmp[45]=0x00;
+//tmp[46]=0x00;
+//tmp[47]=0xff;
+
 
 spi_write(elango_dev.spi_device, addr, 48);
 rotate();
