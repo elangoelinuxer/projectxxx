@@ -1,0 +1,71 @@
+"Received:^MK0010B7!^MS0010BF!" 
+ "transmitted:^PP1352
+ "Received:^MK0010B7!^MS0010BF!" 
+
+
+ "transmitted:^PI0014PL  ----- 43 ------    BF!" 
+
+
+
+ "Received:^MK0010B7!^MS0010BF!" 
+ image available 
+ "transmitted:^PD0721image~COIMBATORE  cm100~Challan No :TET1000092  lm000~DateTime:21/Aug/14 12:42:54 PM  ls000~Issuing Off 
+ "Received:^MK0010B7!^MS0010BF!" 
+ "transmitted:^IS0011BFE!" 
+ "Received:^MK0010B7!^IS0016C01000F5!" 
+ "transmitted:^PP2650
+ "Received:^MK0010B7!^MS0010BF!" 
+ "transmitted:^PP1930
+ "Received:^MK0010B7!^MS0010BF!" 
+
+ "transmitted:^PI0014PH ------- 38 -------- BF!" 
+
+ Received: "
++CSQ: 22,0
+
+OK
+" 
+ "Received:^MK0010B7!^MS0010BF!" 
+ image available 
+ "transmitted:^PD0049image~Signature of the violator  ls000~05!" 
+ "Received:^MK0010B7!^MS0010BF!" 
+ "transmitted:^IS0011BFE!" 
+ "Received:^MK0010B7!^IS0016C10000F5!" 
+ "transmitted:^PP2650
+ "Received:^MK0010B7!^MS0010BF!" 
+ "transmitted:^PP1930
+ "Received:^MK0010B7!^MS0010BF!" 
+ "transmitted:^PI0014PH38BF!" 
+ "Received:^MK0010B7!^MS0010BF!" 
+ "transmitted:^PD0083image~Signature of the Challaning Officer  ls000~(RANJITH VISHNU)  ls000~ED!" 
+ "Received:^MK0010B7!^MS0010BF!" 
+ "transmitted:^PF00120920!" 
+ "Received:^MK0010B7!^MS0010BF!" 
+ "transmitted:^PF0012071E!"                        +----------------------+
+ "Received:^MK0010B7!^MS0010BF!"                   |    Leave Minicom?    |
+ B4 load response into shared mem                  |     Yes       No     |
+ Load into shared memory                           +----------------------+
+ After loading response into shared mem 
+ response 
+ sign 22 
+ "transmitted:^IS0011BFE!" 
+ Load into shared memory 
+ "Received:^MK0010B7!^IS0016C10000F5!" 
+ "transmitted:^IL0013T036E!" 
+ "Received:^MK0010B7!^MS0010BF!" 
+ Load into shared memory 
+ Load into shared memory 
+ Load into shared memory 
+ "transmitted:^IE0012X037!" 
+ Received: "
+#CGPADDR: 1,"10.100.181.140"
+
+OK
+" 
+ "Received:^MK0010B7!^MS0010BF!" 
+ Load into shared memory 
+ Load into shared memory 
+ "transmitted:^IS0011BFE!" 
+ "Received:^MK0010B7!^IS0016C10000F5!" 
+ "transmitted:^HG0010AE!" 
+ "Received:^MK0010B7!^HS0012AL49!" 
