@@ -31,8 +31,8 @@
 
 
 
- 
-//-------Header files included------
+
+//------Header files included------
 #include "motor.h"              // header file for motor rotation
 #include "tamil.h"              // header file for  tamil fonts  hex values .....  
 #include "arial_bold_10.h"      // header file for   arial english font  .....

@@ -31,8 +31,9 @@
 
 
 
- 
-//-------Header files included------
+
+//------Header files included------
+
 #include "motor.h"              // header file for motor rotation
 #include "tamil.h"              // header file for  tamil fonts  hex values .....  
 #include "arial_bold_10.h"      // header file for   arial english font  .....
@@ -42,10 +43,8 @@
 #include "image.h"              // header file for fixed image printing   
 #include "tamil_string_conv.h"  // header file for tamil font string printing
 
-
-
-
 //---macros defined -------
+
 #define SPI_BUFF_SIZE	128
 #define USER_BUFF_SIZE	128
 
@@ -53,15 +52,12 @@
 #define SPI_BUS_CS1 0
 #define SPI_BUS_SPEED 1000000
 
-
-
 //-------------
+
 const char this_driver_name[] = "printer";
+
 //------------
 
-
-
-//-------------
 struct printer_control
 {
 	struct spi_message msg;
@@ -70,10 +66,9 @@ struct printer_control
 	u8 *rx_buff;
 };
 struct printer_control printer_ctl;
-//------------
-
 
 //------------
+
 struct printer_dev {
 	struct semaphore spi_sem;
 	struct semaphore fop_sem;
@@ -84,12 +79,14 @@ struct printer_dev {
 	char *user_buff;
 	u8 test_data;	
 };
+
 struct printer_dev printer_dev;
+
 //------------
 
 
-
 // all variable declarations and initializations .......
+
 char **buff;
 int length;
 u8 tmp1[48];
@@ -101,15 +98,15 @@ int g[2000],l=40,lencheck=0;
 int var_1=0,var_2=0,z=1;
 int a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18,a19,a20,a21,a22,a23,a24;
 int a25,a26,a27,a28,a29,a30,a31,a32,a33,a34,a35,a36,a37,a38,a39,a40,a41,a42,a43,a44,a45,a46,a47;  
+
+
 //-------------
 
-
-
-//---------------
 static void printer_prepare_spi_message()
 {
 
-//---------motor control part
+//--------------motor control part
+
 gpio_request(48,"line1");     // requesting the pin48 of gpio
 gpio_export(48,true);        // exporting it to the sysfs entry
 
@@ -157,7 +154,7 @@ g[k]=(**(buff))-32;
 
 }
 
-// *************  start of switch case for selecting the type of printing ***************************
+// *************start of switch case for selecting the type of printing ******************************
 
 if(g[0]==94)
 {
@@ -167,7 +164,7 @@ switch(g[1])
 
 case 66:
 
-//  #############################    start of bmp printing    ##############################
+//  ############################# start of bmp printing ##############################
 
 printk(KERN_ALERT "bmp....g[0] %d \n",g[0]);
 printk(KERN_ALERT "bmp....g[1] %d \n",g[1]);
@@ -182,7 +179,7 @@ for(k=4;k<=99;k++)
 g[k]=0;
 }
 
-bmp_length(); //function call to set  "var_1"  variable
+bmp_length();  //function call to set  "var_1"  variable
 
 
 printk(KERN_ALERT "in main program.....01...%d \n",var_1);
@@ -314,6 +311,56 @@ for(i=0;i<26;i++)
 {
 
 m=0;
+<<<<<<< HEAD
+tmp[0]=tamil[0][i];
+tmp[1]=tamil[1][i];
+tmp[2]=tamil[2][i];
+tmp[3]=0;
+tmp[4]=0;
+tmp[5]=0;
+tmp[6]=0;
+tmp[7]=0;
+tmp[8]=0;
+tmp[9]=0;
+tmp[10]=0;
+tmp[11]=0;
+tmp[12]=0;
+tmp[13]=0;
+tmp[14]=0;
+tmp[15]=0;
+tmp[16]=0;
+tmp[17]=0;
+tmp[18]=0;
+tmp[19]=0;
+tmp[20]=0;
+tmp[21]=0;
+tmp[22]=0;
+tmp[23]=0;
+tmp[24]=0;
+tmp[25]=0;
+tmp[26]=0;
+tmp[27]=0;
+tmp[28]=0;
+tmp[29]=0;
+tmp[30]=0;
+tmp[31]=0;
+tmp[32]=0;
+tmp[33]=0;
+tmp[34]=0;
+tmp[35]=0;
+tmp[36]=0;
+tmp[37]=0;
+tmp[38]=0;
+tmp[39]=0;
+tmp[40]=0;
+tmp[41]=0;
+tmp[42]=0;
+tmp[43]=0;
+tmp[44]=0;
+tmp[45]=0;
+tmp[46]=0;
+tmp[47]=0;
+=======
 tmp[0]=tamil[a0][i];
 tmp[1]=tamil[a1][i];
 tmp[2]=tamil[a2][i];
@@ -363,6 +410,7 @@ tmp[45]=tamil[a45][i];
 tmp[46]=tamil[a46][i];
 tmp[47]=tamil[a47][i];
 
+>>>>>>> tamil_string_print
 
 spi_write(printer_dev.spi_device, addr, 48);
 rotate();   // motor rotation control ( to include motor.h )

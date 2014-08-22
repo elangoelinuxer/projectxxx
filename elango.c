@@ -31,8 +31,8 @@
 
 
 
- 
-//-------Header files included------
+
+//------Header files included------
 #include "motor.h"              // header file for motor rotation
 #include "tamil.h"              // header file for  tamil fonts  hex values .....  
 #include "arial_bold_10.h"      // header file for   arial english font  .....
@@ -312,6 +312,7 @@ conversion();    // to covert the command line datas to hex values (included in 
 
 for(i=0;i<26;i++)
 {
+
 
 m=0;
 tmp[0]=tamil[a0][i];
