@@ -1,3 +1,3 @@
 make
-sudo cp elango.ko  /home/elango/nfs/cups/home/root/
+sudo cp printer.ko  /home/elango/nfs/cups/home/root/
 

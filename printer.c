@@ -313,7 +313,6 @@ conversion();    // to covert the command line datas to hex values (included in 
 for(i=0;i<26;i++)
 {
 
-
 m=0;
 tmp[0]=tamil[a0][i];
 tmp[1]=tamil[a1][i];
