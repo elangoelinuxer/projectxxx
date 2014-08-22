@@ -1,4 +1,4 @@
-obj-m += elango.o
+obj-m += printer.o
 
 all:    
 	make -C /home/elango/hd_poky/beaglebone/kernel/kernel M=$(PWD) modules
