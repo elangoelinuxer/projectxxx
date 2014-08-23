@@ -30,6 +30,11 @@
 //#include <asm/uaccess.h>
 
 
+#include<linux/types.h>
+#include<linux/stat.h>
+#include<linux/fcntl.h>
+
+
 
  
 //-------Header files included------
@@ -37,8 +42,8 @@
 #include "tamil.h"              // header file for  tamil fonts  hex values .....  
 #include "arial_bold_10.h"      // header file for   arial english font  .....
 #include "times_8.h"            // header file for times new roman font ......  
-#include "bmp.h"                // header file bmp printing //ascii to hex conversion
-#include "bmp_length.h"         // header file to find width of bmp image
+//#include "bmp.h"                // header file bmp printing //ascii to hex conversion
+//#include "bmp_length.h"         // header file to find width of bmp image
 #include "image.h"              // header file for fixed image printing   
 #include "tamil_string_conv.h"  // header file for tamil font string printing
 
@@ -101,6 +106,10 @@ int g[2000],l=40,lencheck=0;
 int var_1=0,var_2=0,z=1;
 int a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18,a19,a20,a21,a22,a23,a24;
 int a25,a26,a27,a28,a29,a30,a31,a32,a33,a34,a35,a36,a37,a38,a39,a40,a41,a42,a43,a44,a45,a46,a47;  
+
+
+int fd1;
+
 //-------------
 
 
@@ -169,6 +178,23 @@ case 66:
 
 //  #############################    start of bmp printing    ##############################
 
+
+//fd1=open("data",O_RDONLY);
+
+//printf("hai");
+
+if(fd1==-1)
+{
+
+//perror("open");
+//return;
+
+}
+//fprintf(fd1,"hello....122222");
+
+
+//'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
 printk(KERN_ALERT "bmp....g[0] %d \n",g[0]);
 printk(KERN_ALERT "bmp....g[1] %d \n",g[1]);
 
@@ -182,7 +208,7 @@ for(k=4;k<=99;k++)
 g[k]=0;
 }
 
-bmp_length(); //function call to set  "var_1"  variable
+//bmp_length();  //function call to set  "var_1"  variable
 
 
 printk(KERN_ALERT "in main program.....01...%d \n",var_1);
@@ -259,7 +285,7 @@ printk(KERN_ALERT "bmp....g[4] %d \n",g[4]);
 printk(KERN_ALERT "bmp....g[5] %d \n",g[5]);
 printk(KERN_ALERT "var_1...... %d \n",var_1);
 
-bmp_conv();
+//bmp_conv();     //function for bmp conversion
 
 printk(KERN_ALERT "tmp[0].......%d \n",tmp[0]);
 
