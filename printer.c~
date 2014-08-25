@@ -185,7 +185,7 @@ case 66:
 
 //printf("hai");
 
-if(fd1==-1)
+//if(fd1==-1)
 {
 
 //perror("open");

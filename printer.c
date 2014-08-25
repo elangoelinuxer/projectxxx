@@ -178,7 +178,6 @@ case 66:
 
 
 
-
 //fd1=open("data",O_RDONLY);
 
 //fd1=filp_open("/home/data", O_RDONLY, 0);
@@ -192,7 +191,6 @@ case 66:
 //return;
 
 }
-
 //fprintf(fd1,"hello....122222");
 
 
@@ -536,7 +534,9 @@ case 73:
 
 for(i=0;i<300;i++)
 {
+
 m=0;
+
 tmp[0]=image[i][m];
 tmp[1]=image[i][++m];
 tmp[2]=image[i][++m];
