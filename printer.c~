@@ -108,8 +108,6 @@ int a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18,a19,a20,a2
 int a25,a26,a27,a28,a29,a30,a31,a32,a33,a34,a35,a36,a37,a38,a39,a40,a41,a42,a43,a44,a45,a46,a47;  
 
 
-int fd1;
-
 //-------------
 
 
@@ -119,16 +117,16 @@ static void printer_prepare_spi_message()
 {
 
 //---------motor control part
-gpio_request(48,"line1");     // requesting the pin48 of gpio
-gpio_export(48,true);        // exporting it to the sysfs entry
+gpio_request(48,"motor_line1");      // requesting the pin48 of gpio
+gpio_export(48,true);                // exporting it to the sysfs entry
 
-gpio_request(49,"line2");
+gpio_request(49,"motor_line2");
 gpio_export(49,true);
 
-gpio_request(60,"line3");     // requesting the pin60 of gpio
-gpio_export(60,true);         // exporting it to the sysfs entry
+gpio_request(60,"motor_line3");     // requesting the pin60 of gpio
+gpio_export(60,true);               // exporting it to the sysfs entry
 
-gpio_request(115,"line4");
+gpio_request(115,"motor_line4");
 gpio_export(115,true);
 
 gpio_request(117,"Driver IC enable");
@@ -176,10 +174,14 @@ switch(g[1])
 
 case 66:
 
-//  #############################    start of bmp printing    ##############################
+//  ################################    start of bmp printing    ##############################
+
+
 
 
 //fd1=open("data",O_RDONLY);
+
+//fd1=filp_open("/home/data", O_RDONLY, 0);
 
 //printf("hai");
 
@@ -190,7 +192,10 @@ if(fd1==-1)
 //return;
 
 }
+
 //fprintf(fd1,"hello....122222");
+
+
 
 
 //'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
