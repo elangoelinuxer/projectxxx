@@ -34,19 +34,19 @@
 #include<linux/stat.h>
 #include<linux/fcntl.h>
 
-
-
  
 //-------Header files included------
-#include "motor.h"              // header file for motor rotation
-#include "tamil.h"              // header file for  tamil fonts  hex values .....  
-#include "arial_bold_10.h"      // header file for   arial english font  .....
-#include "times_8.h"            // header file for times new roman font ......  
-//#include "bmp.h"                // header file bmp printing //ascii to hex conversion
-//#include "bmp_length.h"         // header file to find width of bmp image
-#include "image.h"              // header file for fixed image printing   
-#include "tamil_string_conv.h"  // header file for tamil font string printing
 
+#include "motor.h"               // header file for motor rotation
+#include "tamil.h"               // header file for  tamil fonts  hex values .....  
+#include "arial_bold_10.h"       // header file for   arial english font  .....
+#include "times_8.h"             // header file for times new roman font ......  
+//#include "bmp.h"               // header file bmp printing //ascii to hex conversion
+//#include "bmp_length.h"        // header file to find width of bmp image
+#include "bmp_array.h"
+#include "image.h"               // header file for fixed image printing   
+#include "tamil_string_conv.h"   // header file for tamil font string printing
+#include "courier_12.h"
 
 
 
@@ -166,10 +166,10 @@ g[k]=(**(buff))-32;
 
 // *************  start of switch case for selecting the type of printing ***************************
 
-if(g[0]==94)
+if(g[0]==94)  //   ~ charcter for the protocol
 {
 
-switch(g[1])
+switch(g[1])  //   b  character for the protocol
 {
 
 case 66:
@@ -177,8 +177,80 @@ case 66:
 //  ################################    start of bmp printing    ##############################
 
 
+printk(KERN_ALERT "inside switch.....bmp printing.....\n");
 
-//fd1=open("data",O_RDONLY);
+for(i=0;i<100;i++)
+{
+
+m=0;
+
+tmp[0]=bmp[i][m];
+tmp[1]=bmp[i][++m];
+tmp[2]=bmp[i][++m];
+tmp[3]=bmp[i][++m];
+tmp[4]=bmp[i][++m];
+tmp[5]=bmp[i][++m];
+tmp[6]=bmp[i][++m];
+tmp[7]=bmp[i][++m];
+tmp[8]=bmp[i][++m];
+tmp[9]=bmp[i][++m];
+tmp[10]=bmp[i][++m];
+tmp[11]=bmp[i][++m];
+tmp[12]=bmp[i][++m];
+tmp[13]=bmp[i][++m];
+tmp[14]=bmp[i][++m];
+tmp[15]=bmp[i][++m];
+tmp[16]=bmp[i][++m];
+tmp[17]=bmp[i][++m];
+tmp[18]=bmp[i][++m];
+tmp[19]=bmp[i][++m];
+tmp[20]=bmp[i][++m];
+tmp[21]=bmp[i][++m];
+tmp[22]=bmp[i][++m];
+tmp[23]=bmp[i][++m];
+tmp[24]=bmp[i][++m];
+tmp[25]=bmp[i][++m];
+tmp[26]=bmp[i][++m];
+tmp[27]=bmp[i][++m];
+tmp[28]=bmp[i][++m];
+tmp[29]=bmp[i][++m];
+tmp[30]=bmp[i][++m];
+tmp[31]=bmp[i][++m];
+tmp[32]=bmp[i][++m];
+tmp[33]=bmp[i][++m];
+tmp[34]=bmp[i][++m];
+tmp[35]=bmp[i][++m];
+tmp[36]=bmp[i][++m];
+tmp[37]=bmp[i][++m];
+tmp[38]=bmp[i][++m];
+tmp[39]=bmp[i][++m];
+tmp[40]=bmp[i][++m];
+tmp[41]=bmp[i][++m];
+tmp[42]=bmp[i][++m];
+tmp[43]=bmp[i][++m];
+tmp[44]=bmp[i][++m];
+tmp[45]=bmp[i][++m];
+tmp[46]=bmp[i][++m];
+tmp[47]=bmp[i][++m];
+
+spi_write(printer_dev.spi_device, addr, 48);
+
+rotate();        // motor rotation control ( to include motor.h )
+ 
+}
+
+for(i=0;i<48;i++)
+{
+tmp[i]=0;
+}
+spi_write(printer_dev.spi_device, addr, 48);
+
+break;
+
+
+//-------------------------------------------------------------
+/*
+///fd1=open("data",O_RDONLY);
 
 //fd1=filp_open("/home/data", O_RDONLY, 0);
 
@@ -310,13 +382,15 @@ if(var_2<960)
 goto ela1;
 }
 
-//      ########################## end of bmp printing ##########################################
+*/
+
+//    ########################## end of bmp printing ##########################################
 
 break;
 
-case 84:  
+case 84:      // t charcter for tamil printing
 
-//      ################################   tamil printing   ###############################
+//   ################################   tamil printing   ###############################
 
 tmp[0]=tmp[1]=tmp[2]=tmp[3]=tmp[4]=tmp[5]=tmp[6]=tmp[7]=tmp[8]=tmp[9]=tmp[10]=tmp[11]=tmp[12]=tmp[13]=tmp[14]=tmp[15]=tmp[16]=tmp[17]=tmp[18]=tmp[19]=tmp[20]=tmp[21]=tmp[22]=tmp[23]=tmp[24]=tmp[25]=tmp[26]=tmp[27]=tmp[28]=tmp[29]=tmp[30]=tmp[31]=tmp[32]=tmp[33]=tmp[34]=tmp[35]=tmp[36]=tmp[37]=tmp[38]=tmp[39]=tmp[40]=tmp[41]=tmp[42]=tmp[43]=tmp[44]=tmp[45]=tmp[46]=tmp[47]=0;
 
@@ -335,9 +409,7 @@ g[k]=16;   // ascii of 0
 
 }
 
-
 conversion();    // to covert the command line datas to hex values (included in tamil_string_conv.h )
-
 
 for(i=0;i<26;i++)
 {
@@ -392,7 +464,6 @@ tmp[45]=tamil[a45][i];
 tmp[46]=tamil[a46][i];
 tmp[47]=tamil[a47][i];
 
-
 spi_write(printer_dev.spi_device, addr, 48);
 rotate();   // motor rotation control ( to include motor.h )
 
@@ -405,11 +476,27 @@ break;
 //      ############################# End of tamil printing #################################
 
 
-case 69:
+case 69:  //e  charcter for english printing  g[1]
+
 
 //      ########################### Start of english printing ########################################
 
+
           printk(KERN_ALERT "inside switch....english printing....\n");
+
+///----------
+
+for(k=2;k<=2;k++)
+{
+
+g[k]=(**(buff))-32;
+++(*buff);
+
+}
+
+if(g[2]==67)      // c  - courier font  - sizes small ,medium ,large
+{
+
 
 
 ela:
@@ -418,7 +505,7 @@ gpio_direction_output(45,1);
 gpio_direction_output(44,1);
 gpio_direction_output(26,1);
 
-for(k=2;k<50;k++)
+for(k=3;k<51;k++)
 {
 ++lencheck;
 if((k<(length-1)) && lencheck<(length-1) )
@@ -447,9 +534,122 @@ g[k]=0;
 
 for(i=0;i<16;i++)
 {
+m=3;
+tmp[0]=courier_12[g[m]][i];
+tmp[1]=courier_12[g[++m]][i];
+tmp[2]=courier_12[g[++m]][i];
+tmp[3]=courier_12[g[++m]][i];
+tmp[4]=courier_12[g[++m]][i];
+tmp[5]=courier_12[g[++m]][i];
+tmp[6]=courier_12[g[++m]][i];
+tmp[7]=courier_12[g[++m]][i];
+tmp[8]=courier_12[g[++m]][i];
+tmp[9]=courier_12[g[++m]][i];
+tmp[10]=courier_12[g[++m]][i];
+tmp[11]=courier_12[g[++m]][i];
+tmp[12]=courier_12[g[++m]][i];
+tmp[13]=courier_12[g[++m]][i];
+tmp[14]=courier_12[g[++m]][i];
+tmp[15]=courier_12[g[++m]][i];
+tmp[16]=courier_12[g[++m]][i];
+tmp[17]=courier_12[g[++m]][i];
+tmp[18]=courier_12[g[++m]][i];
+tmp[19]=courier_12[g[++m]][i];
+tmp[20]=courier_12[g[++m]][i];
+tmp[21]=courier_12[g[++m]][i];
+tmp[22]=courier_12[g[++m]][i];
+tmp[23]=courier_12[g[++m]][i];
+tmp[24]=courier_12[g[++m]][i];
+tmp[25]=courier_12[g[++m]][i];
+tmp[26]=courier_12[g[++m]][i];
+tmp[27]=courier_12[g[++m]][i];
+tmp[28]=courier_12[g[++m]][i];
+tmp[29]=courier_12[g[++m]][i];
+tmp[30]=courier_12[g[++m]][i];
+tmp[31]=courier_12[g[++m]][i];
+tmp[32]=courier_12[g[++m]][i];
+tmp[33]=courier_12[g[++m]][i];
+tmp[34]=courier_12[g[++m]][i];
+tmp[35]=courier_12[g[++m]][i];
+tmp[36]=courier_12[g[++m]][i];
+tmp[37]=courier_12[g[++m]][i];
+tmp[38]=courier_12[g[++m]][i];
+tmp[39]=courier_12[g[++m]][i];
+tmp[40]=courier_12[g[++m]][i];
+tmp[41]=courier_12[g[++m]][i];
+tmp[42]=courier_12[g[++m]][i];
+tmp[43]=courier_12[g[++m]][i];
+tmp[44]=courier_12[g[++m]][i];
+tmp[45]=courier_12[g[++m]][i];
+tmp[46]=courier_12[g[++m]][i];
+tmp[47]=courier_12[g[++m]][i];
 
-m=2;
+spi_write(printer_dev.spi_device, addr, 48);
 
+rotate();   //this rotate is to control the length of the character 
+            // (calling again rotate() will increase the height of the character)
+            // motor rotation control ( to include motor.h )
+
+}
+
+s++;
+gpio_direction_output(45,0);
+gpio_direction_output(44,0);
+gpio_direction_output(26,0);
+
+printk(KERN_ALERT "lencheck is........... %d  \n",lencheck);
+
+if(lencheck<length)
+{
+goto ela;
+}
+
+lencheck=0;
+
+}
+
+else if(g[2]==84)  // t for  times new roman font 
+{
+
+
+
+ela1:
+
+gpio_direction_output(45,1);
+gpio_direction_output(44,1);
+gpio_direction_output(26,1);
+
+
+for(k=3;k<51;k++)
+{
+++lencheck;
+if((k<(length-1)) && lencheck<(length-1) )
+{
+
+g[k]=(**(buff))-32;
+++(*buff);
+
+}
+else
+{
+
+g[k]=0;
+
+}
+
+if(g[k]==32)
+{
+
+g[k]=0;
+
+}
+
+}
+
+
+for(i=0;i<16;i++)
+{
+m=3;
 tmp[0]=times[g[m]][i];
 tmp[1]=times[g[++m]][i];
 tmp[2]=times[g[++m]][i];
@@ -516,10 +716,14 @@ printk(KERN_ALERT "lencheck is........... %d  \n",lencheck);
 
 if(lencheck<length)
 {
-goto ela;
+goto ela1;
 }
 
 lencheck=0;
+
+
+}
+
 
 //             ##################### end of english printing ###################
 
