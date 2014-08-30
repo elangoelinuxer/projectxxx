@@ -41,7 +41,8 @@
 #include "tamil.h"               // header file for  tamil fonts  hex values .....  
 #include "arial_bold_10.h"       // header file for   arial english font  .....
 #include "times_8.h"             // header file for times new roman font ......  
-#include "bmp.h"               // header file bmp printing //ascii to hex conversion
+//#include "bmp.h"                 // header file bmp printing -echo printing
+#include "bmp2.h"                // header file bmp printing - load and store printing
 //#include "bmp_length.h"        // header file to find width of bmp image
 #include "bmp_array.h"
 #include "image.h"               // header file for fixed image printing   
@@ -93,7 +94,6 @@ struct printer_dev printer_dev;
 //------------
 
 
-
 // all variable declarations and initializations .......
 char **buff;
 int length;
@@ -106,7 +106,7 @@ int g[2000],l=40,lencheck=0;
 int var_1=0,var_2=0,z=1;
 int a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18,a19,a20,a21,a22,a23,a24;
 int a25,a26,a27,a28,a29,a30,a31,a32,a33,a34,a35,a36,a37,a38,a39,a40,a41,a42,a43,a44,a45,a46,a47;  
-char buffer[1024];
+char buffer[15000];
 
 
 //-------------
@@ -181,9 +181,8 @@ case 66:
 
 printk(KERN_ALERT "inside switch.....bmp image .....\n");
 
-/*
 
-//.................bmp new logic... buffer store and print..............................
+//.................bmp new logic... buffer store and print .....logic 1..............................
 
 tmp[0]=tmp[1]=tmp[2]=tmp[3]=tmp[4]=tmp[5]=tmp[6]=tmp[7]=tmp[8]=tmp[9]=tmp[10]=tmp[11]=tmp[12]=tmp[13]=tmp[14]=tmp[15]=tmp[16]=tmp[17]=tmp[18]=tmp[19]=tmp[20]=tmp[21]=tmp[22]=tmp[23]=tmp[24]=tmp[25]=tmp[26]=tmp[27]=tmp[28]=tmp[29]=tmp[30]=tmp[31]=tmp[32]=tmp[33]=tmp[34]=tmp[35]=tmp[36]=tmp[37]=tmp[38]=tmp[39]=tmp[40]=tmp[41]=tmp[42]=tmp[43]=tmp[44]=tmp[45]=tmp[46]=tmp[47]=0;
 
@@ -197,19 +196,17 @@ g[k]=(**(buff))-32;  //note
 }
 
 
-if(g[2]==76)   //loading
+if(g[2]==76)   // 'l'  loading
 {
 
 printk(KERN_ALERT "Bmp loading....\n");
-
 
 for(i=0;i<1024;i++)
 {
 buffer[i]=0;
 }
 
-
-for(i=0;i<length;i++)
+for(i=4;i<(length+4);i++)
 {
 buffer[i]=(**(buff));
 ++(*buff);
@@ -217,9 +214,9 @@ buffer[i]=(**(buff));
 
 printk(KERN_ALERT "buffer... %s \n",buffer);
 
-}          // end of loading
+}                   // end of loading
 
-else if(g[2]==80)    // printing
+else if(g[2]==80)    // 'p'  printing
 {
 
 printk(KERN_ALERT "Bmp printing....\n");
@@ -227,12 +224,7 @@ printk(KERN_ALERT "Bmp printing....\n");
 printk(KERN_ALERT "buffer... %s \n",buffer);
 
 
-gpio_direction_output(45,1);
-gpio_direction_output(44,1);
-gpio_direction_output(26,1);
-
-
-
+/*   // for testing
 if(buffer[0]==70 && buffer[1]==70)
 {
 
@@ -245,16 +237,23 @@ if(buffer[2]==48 && buffer[3]==48)
 
 tmp[47]=255;
 
-}
+} */
+
+
+bmp_conv2();
 
 printk(KERN_ALERT "buffer[0]... %c  %d\n",buffer[0],buffer[0]);
-
 printk(KERN_ALERT "buffer[1]... %c  %d\n",buffer[1],buffer[1]);
+
+
+gpio_direction_output(45,1);
+gpio_direction_output(44,1);
+gpio_direction_output(26,1);
 
 
 spi_write(printer_dev.spi_device, addr, 48);
 
-rotate();    // motor rotation control ( to include motor.h )
+rotate();    // motor rotation control ( to include motor.h ).........................
 
 gpio_direction_output(45,0);
 gpio_direction_output(44,0);
@@ -266,11 +265,11 @@ tmp[0]=tmp[1]=tmp[2]=tmp[3]=tmp[4]=tmp[5]=tmp[6]=tmp[7]=tmp[8]=tmp[9]=tmp[10]=tm
 
 
 //-----------end of load store and print ---------------- 
-*/
 
 
 
-//................. Bmp echo printing (done) (motor controll is poor) ..............................
+/*
+//................. Bmp echo printing (done) (motor controll is poor)....logic 2...................
 
 tmp[0]=tmp[1]=tmp[2]=tmp[3]=tmp[4]=tmp[5]=tmp[6]=tmp[7]=tmp[8]=tmp[9]=tmp[10]=tmp[11]=tmp[12]=tmp[13]=tmp[14]=tmp[15]=tmp[16]=tmp[17]=tmp[18]=tmp[19]=tmp[20]=tmp[21]=tmp[22]=tmp[23]=tmp[24]=tmp[25]=tmp[26]=tmp[27]=tmp[28]=tmp[29]=tmp[30]=tmp[31]=tmp[32]=tmp[33]=tmp[34]=tmp[35]=tmp[36]=tmp[37]=tmp[38]=tmp[39]=tmp[40]=tmp[41]=tmp[42]=tmp[43]=tmp[44]=tmp[45]=tmp[46]=tmp[47]=0;
 
@@ -303,18 +302,13 @@ gpio_direction_output(45,1);
 gpio_direction_output(44,1);
 gpio_direction_output(26,1);
 
-
 spi_write(printer_dev.spi_device, addr, 48);
 
-
 rotate();    // motor rotation control ( to include motor.h )
-//rotate();
-
 
 gpio_direction_output(45,0);
 gpio_direction_output(44,0);
 gpio_direction_output(26,0);
-
 
 tmp[0]=tmp[1]=tmp[2]=tmp[3]=tmp[4]=tmp[5]=tmp[6]=tmp[7]=tmp[8]=tmp[9]=tmp[10]=tmp[11]=tmp[12]=tmp[13]=tmp[14]=tmp[15]=tmp[16]=tmp[17]=tmp[18]=tmp[19]=tmp[20]=tmp[21]=tmp[22]=tmp[23]=tmp[24]=tmp[25]=tmp[26]=tmp[27]=tmp[28]=tmp[29]=tmp[30]=tmp[31]=tmp[32]=tmp[33]=tmp[34]=tmp[35]=tmp[36]=tmp[37]=tmp[38]=tmp[39]=tmp[40]=tmp[41]=tmp[42]=tmp[43]=tmp[44]=tmp[45]=tmp[46]=tmp[47]=0;
 
@@ -322,7 +316,7 @@ tmp[0]=tmp[1]=tmp[2]=tmp[3]=tmp[4]=tmp[5]=tmp[6]=tmp[7]=tmp[8]=tmp[9]=tmp[10]=tm
 
 //    ########################## end of bmp printing ##########################################
 
-
+*/
 
 break;
 
@@ -692,11 +686,8 @@ for(i=10;i<300;i++)  //300
 
 m=0;
 
-//tmp[0]=image[i][m];
-//tmp[1]=image[i][++m];
-
-tmp[0]=255;
-tmp[1]=255;
+tmp[0]=image[i][m];
+tmp[1]=image[i][++m];
 tmp[2]=image[i][++m];
 tmp[3]=image[i][++m];
 tmp[4]=image[i][++m];
