@@ -41,7 +41,7 @@
 #include "tamil.h"               // header file for  tamil fonts  hex values .....  
 #include "arial_bold_10.h"       // header file for   arial english font  .....
 #include "times_8.h"             // header file for times new roman font ......  
-//#include "bmp.h"               // header file bmp printing //ascii to hex conversion
+#include "bmp.h"               // header file bmp printing //ascii to hex conversion
 //#include "bmp_length.h"        // header file to find width of bmp image
 #include "bmp_array.h"
 #include "image.h"               // header file for fixed image printing   
@@ -164,6 +164,11 @@ g[k]=(**(buff))-32;
 
 }
 
+++(*buff);
+++(*buff);
+
+
+
 // *************  start of switch case for selecting the type of printing ***************************
 
 if(g[0]==94)  //   ~ charcter for the protocol
@@ -179,96 +184,88 @@ case 66:
 
 printk(KERN_ALERT "inside switch.....bmp printing.....\n");
 
-for(i=0;i<100;i++)
+
+//.................new logic..............................
+
+
+tmp[0]=tmp[1]=tmp[2]=tmp[3]=tmp[4]=tmp[5]=tmp[6]=tmp[7]=tmp[8]=tmp[9]=tmp[10]=tmp[11]=tmp[12]=tmp[13]=tmp[14]=tmp[15]=tmp[16]=tmp[17]=tmp[18]=tmp[19]=tmp[20]=tmp[21]=tmp[22]=tmp[23]=tmp[24]=tmp[25]=tmp[26]=tmp[27]=tmp[28]=tmp[29]=tmp[30]=tmp[31]=tmp[32]=tmp[33]=tmp[34]=tmp[35]=tmp[36]=tmp[37]=tmp[38]=tmp[39]=tmp[40]=tmp[41]=tmp[42]=tmp[43]=tmp[44]=tmp[45]=tmp[46]=tmp[47]=0;
+
+
+for(k=4;k<=99;k++)
 {
 
-m=0;
+++lencheck;
 
-tmp[0]=bmp[i][m];
-tmp[1]=bmp[i][++m];
-tmp[2]=bmp[i][++m];
-tmp[3]=bmp[i][++m];
-tmp[4]=bmp[i][++m];
-tmp[5]=bmp[i][++m];
-tmp[6]=bmp[i][++m];
-tmp[7]=bmp[i][++m];
-tmp[8]=bmp[i][++m];
-tmp[9]=bmp[i][++m];
-tmp[10]=bmp[i][++m];
-tmp[11]=bmp[i][++m];
-tmp[12]=bmp[i][++m];
-tmp[13]=bmp[i][++m];
-tmp[14]=bmp[i][++m];
-tmp[15]=bmp[i][++m];
-tmp[16]=bmp[i][++m];
-tmp[17]=bmp[i][++m];
-tmp[18]=bmp[i][++m];
-tmp[19]=bmp[i][++m];
-tmp[20]=bmp[i][++m];
-tmp[21]=bmp[i][++m];
-tmp[22]=bmp[i][++m];
-tmp[23]=bmp[i][++m];
-tmp[24]=bmp[i][++m];
-tmp[25]=bmp[i][++m];
-tmp[26]=bmp[i][++m];
-tmp[27]=bmp[i][++m];
-tmp[28]=bmp[i][++m];
-tmp[29]=bmp[i][++m];
-tmp[30]=bmp[i][++m];
-tmp[31]=bmp[i][++m];
-tmp[32]=bmp[i][++m];
-tmp[33]=bmp[i][++m];
-tmp[34]=bmp[i][++m];
-tmp[35]=bmp[i][++m];
-tmp[36]=bmp[i][++m];
-tmp[37]=bmp[i][++m];
-tmp[38]=bmp[i][++m];
-tmp[39]=bmp[i][++m];
-tmp[40]=bmp[i][++m];
-tmp[41]=bmp[i][++m];
-tmp[42]=bmp[i][++m];
-tmp[43]=bmp[i][++m];
-tmp[44]=bmp[i][++m];
-tmp[45]=bmp[i][++m];
-tmp[46]=bmp[i][++m];
-tmp[47]=bmp[i][++m];
+if(lencheck<length)
+{
+
+g[k]=(**(buff));
+++(*buff);
+
+}
+else
+{
+g[k]=48;
+}
+
+}
+
+lencheck=0;
+
+printk(KERN_ALERT "bmp....g[0] %d \n",g[0]);
+printk(KERN_ALERT "bmp....g[1] %d \n",g[1]);
+
+printk(KERN_ALERT "bmp....g[2] %d \n",g[2]);
+printk(KERN_ALERT "bmp....g[3] %d \n",g[3]);
+
+printk(KERN_ALERT "bmp....g[4] %d \n",g[4]);
+printk(KERN_ALERT "bmp....g[5] %d \n",g[5]);
+
+
+bmp_conv();     //function for bmp conversion
+
+
+
+printk(KERN_ALERT "After conversion.... \n");
+
+
+printk(KERN_ALERT "bmp....g[4] %d \n",g[4]);
+printk(KERN_ALERT "bmp....g[5] %d \n",g[5]);
+
+
+printk(KERN_ALERT "bmp....g[98] %d \n",g[98]);
+printk(KERN_ALERT "bmp....g[99] %d \n",g[99]);
+
+
+gpio_direction_output(45,1);
+gpio_direction_output(44,1);
+gpio_direction_output(26,1);
+
+
+printk(KERN_ALERT "tmp[0].......%d \n",tmp[0]);
+printk(KERN_ALERT "tmp[47].......%d \n",tmp[47]);
+
 
 spi_write(printer_dev.spi_device, addr, 48);
 
-rotate();        // motor rotation control ( to include motor.h )
- 
-}
 
-for(i=0;i<48;i++)
-{
-tmp[i]=0;
-}
-spi_write(printer_dev.spi_device, addr, 48);
-
-break;
+rotate();    // motor rotation control ( to include motor.h )
 
 
-//-------------------------------------------------------------
+gpio_direction_output(45,0);
+gpio_direction_output(44,0);
+gpio_direction_output(26,0);
+
+
+
+
+tmp[0]=tmp[1]=tmp[2]=tmp[3]=tmp[4]=tmp[5]=tmp[6]=tmp[7]=tmp[8]=tmp[9]=tmp[10]=tmp[11]=tmp[12]=tmp[13]=tmp[14]=tmp[15]=tmp[16]=tmp[17]=tmp[18]=tmp[19]=tmp[20]=tmp[21]=tmp[22]=tmp[23]=tmp[24]=tmp[25]=tmp[26]=tmp[27]=tmp[28]=tmp[29]=tmp[30]=tmp[31]=tmp[32]=tmp[33]=tmp[34]=tmp[35]=tmp[36]=tmp[37]=tmp[38]=tmp[39]=tmp[40]=tmp[41]=tmp[42]=tmp[43]=tmp[44]=tmp[45]=tmp[46]=tmp[47]=0;
+
+
+
+//----------------------------------------------------------
 /*
-///fd1=open("data",O_RDONLY);
 
-//fd1=filp_open("/home/data", O_RDONLY, 0);
-
-//printf("hai");
-
-//if(fd1==-1)
-{
-
-//perror("open");
-//return;
-
-}
-//fprintf(fd1,"hello....122222");
-
-
-
-
-//'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 printk(KERN_ALERT "bmp....g[0] %d \n",g[0]);
 printk(KERN_ALERT "bmp....g[1] %d \n",g[1]);
@@ -283,8 +280,8 @@ for(k=4;k<=99;k++)
 g[k]=0;
 }
 
-//bmp_length();  //function call to set  "var_1"  variable
 
+//bmp_length();  //function call to set  "var_1"  variable
 
 printk(KERN_ALERT "in main program.....01...%d \n",var_1);
 
@@ -383,10 +380,86 @@ goto ela1;
 }
 
 */
+//.................................
+
+
+/*
+for(i=0;i<20;i++)
+{
+
+m=0;
+
+tmp[0]=bmp[i][m];
+tmp[1]=bmp[i][++m];
+tmp[2]=bmp[i][++m];
+tmp[3]=bmp[i][++m];
+tmp[4]=bmp[i][++m];
+tmp[5]=bmp[i][++m];
+tmp[6]=bmp[i][++m];
+tmp[7]=bmp[i][++m];
+tmp[8]=bmp[i][++m];
+tmp[9]=bmp[i][++m];
+tmp[10]=bmp[i][++m];
+tmp[11]=bmp[i][++m];
+tmp[12]=bmp[i][++m];
+tmp[13]=bmp[i][++m];
+tmp[14]=bmp[i][++m];
+tmp[15]=bmp[i][++m];
+tmp[16]=bmp[i][++m];
+tmp[17]=bmp[i][++m];
+tmp[18]=bmp[i][++m];
+tmp[19]=bmp[i][++m];
+tmp[20]=bmp[i][++m];
+tmp[21]=bmp[i][++m];
+tmp[22]=bmp[i][++m];
+tmp[23]=bmp[i][++m];
+tmp[24]=bmp[i][++m];
+tmp[25]=bmp[i][++m];
+tmp[26]=bmp[i][++m];
+tmp[27]=bmp[i][++m];
+tmp[28]=bmp[i][++m];
+tmp[29]=bmp[i][++m];
+tmp[30]=bmp[i][++m];
+tmp[31]=bmp[i][++m];
+tmp[32]=bmp[i][++m];
+tmp[33]=bmp[i][++m];
+tmp[34]=bmp[i][++m];
+tmp[35]=bmp[i][++m];
+tmp[36]=bmp[i][++m];
+tmp[37]=bmp[i][++m];
+tmp[38]=bmp[i][++m];
+tmp[39]=bmp[i][++m];
+tmp[40]=bmp[i][++m];
+tmp[41]=bmp[i][++m];
+tmp[42]=bmp[i][++m];
+tmp[43]=bmp[i][++m];
+tmp[44]=bmp[i][++m];
+tmp[45]=bmp[i][++m];
+tmp[46]=bmp[i][++m];
+tmp[47]=bmp[i][++m];
+
+spi_write(printer_dev.spi_device, addr, 48);
+
+rotate();        // motor rotation control ( to include motor.h )
+ 
+}
+
+for(i=0;i<48;i++)
+{
+tmp[i]=0;
+}
+spi_write(printer_dev.spi_device, addr, 48);
+
+break;
+
+*/
+
+
 
 //    ########################## end of bmp printing ##########################################
 
 break;
+
 
 case 84:      // t charcter for tamil printing
 
@@ -736,7 +809,7 @@ case 73:
            printk(KERN_ALERT "inside switch.....image printing.....\n");
 
 
-for(i=0;i<300;i++)
+for(i=10;i<11;i++)  //300
 {
 
 m=0;
