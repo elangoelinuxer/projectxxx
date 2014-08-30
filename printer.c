@@ -106,6 +106,7 @@ int g[2000],l=40,lencheck=0;
 int var_1=0,var_2=0,z=1;
 int a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18,a19,a20,a21,a22,a23,a24;
 int a25,a26,a27,a28,a29,a30,a31,a32,a33,a34,a35,a36,a37,a38,a39,a40,a41,a42,a43,a44,a45,a46,a47;  
+char buffer[1024];
 
 
 //-------------
@@ -141,11 +142,8 @@ gpio_export(44,true);
 gpio_request(26,"strobe5&6");
 gpio_export(26,true);
 
-
-
 spi_message_init(&printer_ctl.msg);
 	 	
-
 gpio_direction_output(45,1);
 gpio_direction_output(44,1);
 gpio_direction_output(26,1);
@@ -164,17 +162,16 @@ g[k]=(**(buff))-32;
 
 }
 
-++(*buff);
-++(*buff);
-
+//++(*buff);
+//++(*buff);
 
 
 // *************  start of switch case for selecting the type of printing ***************************
 
-if(g[0]==94)  //   ~ charcter for the protocol
+if(g[0]==94)    //   ~ charcter for the protocol
 {
 
-switch(g[1])  //   b  character for the protocol
+switch(g[1])   //   b  character for the protocol
 {
 
 case 66:
@@ -182,14 +179,100 @@ case 66:
 //  ################################    start of bmp printing    ##############################
 
 
-printk(KERN_ALERT "inside switch.....bmp printing.....\n");
+printk(KERN_ALERT "inside switch.....bmp image .....\n");
 
+/*
 
-//.................new logic..............................
-
+//.................bmp new logic... buffer store and print..............................
 
 tmp[0]=tmp[1]=tmp[2]=tmp[3]=tmp[4]=tmp[5]=tmp[6]=tmp[7]=tmp[8]=tmp[9]=tmp[10]=tmp[11]=tmp[12]=tmp[13]=tmp[14]=tmp[15]=tmp[16]=tmp[17]=tmp[18]=tmp[19]=tmp[20]=tmp[21]=tmp[22]=tmp[23]=tmp[24]=tmp[25]=tmp[26]=tmp[27]=tmp[28]=tmp[29]=tmp[30]=tmp[31]=tmp[32]=tmp[33]=tmp[34]=tmp[35]=tmp[36]=tmp[37]=tmp[38]=tmp[39]=tmp[40]=tmp[41]=tmp[42]=tmp[43]=tmp[44]=tmp[45]=tmp[46]=tmp[47]=0;
 
+
+for(k=2;k<=2;k++)
+{
+
+g[k]=(**(buff))-32;  //note
+++(*buff);
+
+}
+
+
+if(g[2]==76)   //loading
+{
+
+printk(KERN_ALERT "Bmp loading....\n");
+
+
+for(i=0;i<1024;i++)
+{
+buffer[i]=0;
+}
+
+
+for(i=0;i<length;i++)
+{
+buffer[i]=(**(buff));
+++(*buff);
+}
+
+printk(KERN_ALERT "buffer... %s \n",buffer);
+
+}          // end of loading
+
+else if(g[2]==80)    // printing
+{
+
+printk(KERN_ALERT "Bmp printing....\n");
+
+printk(KERN_ALERT "buffer... %s \n",buffer);
+
+
+gpio_direction_output(45,1);
+gpio_direction_output(44,1);
+gpio_direction_output(26,1);
+
+
+
+if(buffer[0]==70 && buffer[1]==70)
+{
+
+tmp[0]=255;
+
+}
+
+if(buffer[2]==48 && buffer[3]==48)
+{
+
+tmp[47]=255;
+
+}
+
+printk(KERN_ALERT "buffer[0]... %c  %d\n",buffer[0],buffer[0]);
+
+printk(KERN_ALERT "buffer[1]... %c  %d\n",buffer[1],buffer[1]);
+
+
+spi_write(printer_dev.spi_device, addr, 48);
+
+rotate();    // motor rotation control ( to include motor.h )
+
+gpio_direction_output(45,0);
+gpio_direction_output(44,0);
+gpio_direction_output(26,0);
+
+} // end of printing  g[2]==80
+
+tmp[0]=tmp[1]=tmp[2]=tmp[3]=tmp[4]=tmp[5]=tmp[6]=tmp[7]=tmp[8]=tmp[9]=tmp[10]=tmp[11]=tmp[12]=tmp[13]=tmp[14]=tmp[15]=tmp[16]=tmp[17]=tmp[18]=tmp[19]=tmp[20]=tmp[21]=tmp[22]=tmp[23]=tmp[24]=tmp[25]=tmp[26]=tmp[27]=tmp[28]=tmp[29]=tmp[30]=tmp[31]=tmp[32]=tmp[33]=tmp[34]=tmp[35]=tmp[36]=tmp[37]=tmp[38]=tmp[39]=tmp[40]=tmp[41]=tmp[42]=tmp[43]=tmp[44]=tmp[45]=tmp[46]=tmp[47]=0;
+
+
+//-----------end of load store and print ---------------- 
+*/
+
+
+
+//................. Bmp echo printing (done) (motor controll is poor) ..............................
+
+tmp[0]=tmp[1]=tmp[2]=tmp[3]=tmp[4]=tmp[5]=tmp[6]=tmp[7]=tmp[8]=tmp[9]=tmp[10]=tmp[11]=tmp[12]=tmp[13]=tmp[14]=tmp[15]=tmp[16]=tmp[17]=tmp[18]=tmp[19]=tmp[20]=tmp[21]=tmp[22]=tmp[23]=tmp[24]=tmp[25]=tmp[26]=tmp[27]=tmp[28]=tmp[29]=tmp[30]=tmp[31]=tmp[32]=tmp[33]=tmp[34]=tmp[35]=tmp[36]=tmp[37]=tmp[38]=tmp[39]=tmp[40]=tmp[41]=tmp[42]=tmp[43]=tmp[44]=tmp[45]=tmp[46]=tmp[47]=0;
 
 for(k=4;k<=99;k++)
 {
@@ -212,44 +295,20 @@ g[k]=48;
 
 lencheck=0;
 
-printk(KERN_ALERT "bmp....g[0] %d \n",g[0]);
-printk(KERN_ALERT "bmp....g[1] %d \n",g[1]);
-
-printk(KERN_ALERT "bmp....g[2] %d \n",g[2]);
-printk(KERN_ALERT "bmp....g[3] %d \n",g[3]);
-
-printk(KERN_ALERT "bmp....g[4] %d \n",g[4]);
-printk(KERN_ALERT "bmp....g[5] %d \n",g[5]);
-
 
 bmp_conv();     //function for bmp conversion
 
 
-
-printk(KERN_ALERT "After conversion.... \n");
-
-
-printk(KERN_ALERT "bmp....g[4] %d \n",g[4]);
-printk(KERN_ALERT "bmp....g[5] %d \n",g[5]);
-
-
-printk(KERN_ALERT "bmp....g[98] %d \n",g[98]);
-printk(KERN_ALERT "bmp....g[99] %d \n",g[99]);
-
-
 gpio_direction_output(45,1);
 gpio_direction_output(44,1);
 gpio_direction_output(26,1);
-
-
-printk(KERN_ALERT "tmp[0].......%d \n",tmp[0]);
-printk(KERN_ALERT "tmp[47].......%d \n",tmp[47]);
 
 
 spi_write(printer_dev.spi_device, addr, 48);
 
 
 rotate();    // motor rotation control ( to include motor.h )
+//rotate();
 
 
 gpio_direction_output(45,0);
@@ -257,206 +316,13 @@ gpio_direction_output(44,0);
 gpio_direction_output(26,0);
 
 
-
-
 tmp[0]=tmp[1]=tmp[2]=tmp[3]=tmp[4]=tmp[5]=tmp[6]=tmp[7]=tmp[8]=tmp[9]=tmp[10]=tmp[11]=tmp[12]=tmp[13]=tmp[14]=tmp[15]=tmp[16]=tmp[17]=tmp[18]=tmp[19]=tmp[20]=tmp[21]=tmp[22]=tmp[23]=tmp[24]=tmp[25]=tmp[26]=tmp[27]=tmp[28]=tmp[29]=tmp[30]=tmp[31]=tmp[32]=tmp[33]=tmp[34]=tmp[35]=tmp[36]=tmp[37]=tmp[38]=tmp[39]=tmp[40]=tmp[41]=tmp[42]=tmp[43]=tmp[44]=tmp[45]=tmp[46]=tmp[47]=0;
-
-
-
-//----------------------------------------------------------
-/*
-
-
-printk(KERN_ALERT "bmp....g[0] %d \n",g[0]);
-printk(KERN_ALERT "bmp....g[1] %d \n",g[1]);
-
-g[2]=(**(buff))-32;
-++(*buff);
-g[3]=(**(buff))-32;
-++(*buff);
-
-for(k=4;k<=99;k++)
-{
-g[k]=0;
-}
-
-
-//bmp_length();  //function call to set  "var_1"  variable
-
-printk(KERN_ALERT "in main program.....01...%d \n",var_1);
-
-
-for(k=4;k<=99;k++)
-{
-
-++lencheck;
-++var_2;
-
-if(lencheck<=var_1)
-{
-
-g[k]=(**(buff))-32;
-++(*buff);
-
-}
-else
-{
-
-g[k]=0;
-
-}
-
-}
-
-ela1:
-
-if(z==0)
-{
-
-for(k=4;k<=99;k++)
-{
-
-g[k]=0;
-
-}
-
-for(k=4;k<=99;k++)
-{
-
-++lencheck;
-
-++var_2;
-
-if(lencheck<=var_1)
-{
-
-g[k]=(**(buff))-32;
-++(*buff);
-
-}
-else
-{
-
-g[k]=0;
-
-}
-
-}
-
-}
-
-z=0;
-
-gpio_direction_output(45,1);
-gpio_direction_output(44,1);
-gpio_direction_output(26,1);
-
-printk(KERN_ALERT "bmp....g[2] %d \n",g[2]);
-printk(KERN_ALERT "bmp....g[3] %d \n \n \n",g[3]);
-printk(KERN_ALERT "bmp....g[4] %d \n",g[4]);
-printk(KERN_ALERT "bmp....g[5] %d \n",g[5]);
-printk(KERN_ALERT "var_1...... %d \n",var_1);
-
-//bmp_conv();     //function for bmp conversion
-
-printk(KERN_ALERT "tmp[0].......%d \n",tmp[0]);
-
-spi_write(printer_dev.spi_device, addr, 48);
-
-rotate();    // motor rotation control ( to include motor.h )
-
-gpio_direction_output(45,0);
-gpio_direction_output(44,0);
-gpio_direction_output(26,0);
-
-
-tmp[0]=tmp[1]=tmp[2]=tmp[3]=tmp[4]=tmp[5]=tmp[6]=tmp[7]=tmp[8]=tmp[9]=tmp[10]=tmp[11]=tmp[12]=tmp[13]=tmp[14]=tmp[15]=tmp[16]=tmp[17]=tmp[18]=tmp[19]=tmp[20]=tmp[21]=tmp[22]=tmp[23]=tmp[24]=tmp[25]=tmp[26]=tmp[27]=tmp[28]=tmp[29]=tmp[30]=tmp[31]=tmp[32]=tmp[33]=tmp[34]=tmp[35]=tmp[36]=tmp[37]=tmp[38]=tmp[39]=tmp[40]=tmp[41]=tmp[42]=tmp[43]=tmp[44]=tmp[45]=tmp[46]=tmp[47]=0;
-
-lencheck=0;
-
-if(var_2<960)
-{
-goto ela1;
-}
-
-*/
-//.................................
-
-
-/*
-for(i=0;i<20;i++)
-{
-
-m=0;
-
-tmp[0]=bmp[i][m];
-tmp[1]=bmp[i][++m];
-tmp[2]=bmp[i][++m];
-tmp[3]=bmp[i][++m];
-tmp[4]=bmp[i][++m];
-tmp[5]=bmp[i][++m];
-tmp[6]=bmp[i][++m];
-tmp[7]=bmp[i][++m];
-tmp[8]=bmp[i][++m];
-tmp[9]=bmp[i][++m];
-tmp[10]=bmp[i][++m];
-tmp[11]=bmp[i][++m];
-tmp[12]=bmp[i][++m];
-tmp[13]=bmp[i][++m];
-tmp[14]=bmp[i][++m];
-tmp[15]=bmp[i][++m];
-tmp[16]=bmp[i][++m];
-tmp[17]=bmp[i][++m];
-tmp[18]=bmp[i][++m];
-tmp[19]=bmp[i][++m];
-tmp[20]=bmp[i][++m];
-tmp[21]=bmp[i][++m];
-tmp[22]=bmp[i][++m];
-tmp[23]=bmp[i][++m];
-tmp[24]=bmp[i][++m];
-tmp[25]=bmp[i][++m];
-tmp[26]=bmp[i][++m];
-tmp[27]=bmp[i][++m];
-tmp[28]=bmp[i][++m];
-tmp[29]=bmp[i][++m];
-tmp[30]=bmp[i][++m];
-tmp[31]=bmp[i][++m];
-tmp[32]=bmp[i][++m];
-tmp[33]=bmp[i][++m];
-tmp[34]=bmp[i][++m];
-tmp[35]=bmp[i][++m];
-tmp[36]=bmp[i][++m];
-tmp[37]=bmp[i][++m];
-tmp[38]=bmp[i][++m];
-tmp[39]=bmp[i][++m];
-tmp[40]=bmp[i][++m];
-tmp[41]=bmp[i][++m];
-tmp[42]=bmp[i][++m];
-tmp[43]=bmp[i][++m];
-tmp[44]=bmp[i][++m];
-tmp[45]=bmp[i][++m];
-tmp[46]=bmp[i][++m];
-tmp[47]=bmp[i][++m];
-
-spi_write(printer_dev.spi_device, addr, 48);
-
-rotate();        // motor rotation control ( to include motor.h )
- 
-}
-
-for(i=0;i<48;i++)
-{
-tmp[i]=0;
-}
-spi_write(printer_dev.spi_device, addr, 48);
-
-break;
-
-*/
 
 
 
 //    ########################## end of bmp printing ##########################################
+
+
 
 break;
 
@@ -544,6 +410,12 @@ rotate();   // motor rotation control ( to include motor.h )
 
 spi_write(printer_dev.spi_device, addr, 48);
      
+rotate();
+rotate();
+rotate();
+rotate();
+rotate();
+
 break; 
 
 //      ############################# End of tamil printing #################################
@@ -800,6 +672,12 @@ lencheck=0;
 
 //             ##################### end of english printing ###################
 
+rotate();
+rotate();
+rotate();
+rotate();
+rotate();
+
            break;
 
 case 73:
@@ -809,13 +687,16 @@ case 73:
            printk(KERN_ALERT "inside switch.....image printing.....\n");
 
 
-for(i=10;i<11;i++)  //300
+for(i=10;i<300;i++)  //300
 {
 
 m=0;
 
-tmp[0]=image[i][m];
-tmp[1]=image[i][++m];
+//tmp[0]=image[i][m];
+//tmp[1]=image[i][++m];
+
+tmp[0]=255;
+tmp[1]=255;
 tmp[2]=image[i][++m];
 tmp[3]=image[i][++m];
 tmp[4]=image[i][++m];
@@ -875,6 +756,12 @@ tmp[i]=0;
 }
 spi_write(printer_dev.spi_device, addr, 48);
 
+rotate();
+rotate();
+rotate();
+rotate();
+rotate();
+
 break;
 
 //              ###################### end of image printing ############################
@@ -883,11 +770,7 @@ break;
 
 }
 
-rotate();
-rotate();
-rotate();
-rotate();
-rotate();
+
 
 gpio_direction_output(45,0);
 gpio_direction_output(44,0);
